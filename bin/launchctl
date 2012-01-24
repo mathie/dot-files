@@ -1,0 +1,2 @@
+#!/bin/sh
+exec reattach-to-user-namespace /bin/$(basename $0) $*
