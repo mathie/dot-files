@@ -17,6 +17,7 @@ alias dayone="/Applications/Day\ One.app/Contents/MacOS/dayone"
 
 # Helpful git aliases
 alias gs='git status --short --branch'
+alias gd='git diff'
 alias gdc='git diff --cached'
 alias glog='git log --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
 alias gl='glog --graph'
