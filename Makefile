@@ -12,6 +12,7 @@ install_dotfiles:
 
 install_bin_dir:
 	mkdir -p ~/bin
+	SetFile -a V ~/bin
 	for i in $(BIN_DIR)/*; do \
 		ln -snf `pwd`/$$i ${HOME}/$$i; \
 	done
