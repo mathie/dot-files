@@ -10,3 +10,5 @@
 	templatedir = ~/.git_template
 [core]
 	excludesfile = /Users/mathie/.gitignore_global
+[alias]
+	ctags = !.git/hooks/ctags
