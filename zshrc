@@ -26,7 +26,13 @@ alias gup='git smart-pull'
 alias gc='git commit'
 alias ga='git add'
 alias gap='git add --patch'
+alias gp='git push'
 
+# Shortcuts for various remote Rails consoles
+alias fa-production-console='ssh -t deploy@console.freeagentcentral.net "(cd current && bundle exec rails console production)"'
+alias fa-staging-console='ssh -t deploy@web1.staging "(cd current && bundle exec rails console staging)"'
+
+# Nice prompt
 export PROMPT=$'%{\e[0;90m%}%n@%m %*%{\e[0m%}
 %{\e[0;%(?.32.31)m%}>%{\e[0m%} '
 export RPROMPT=$'%{\e[0;90m%}%c $(rvm-prompt i v)$(git_cwd_info)%{\e[0m%}'
