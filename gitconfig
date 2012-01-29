@@ -3,9 +3,6 @@
 	email = mathie@woss.name
 [color]
 	ui = auto
-[github]
-	user = mathie
-	token = e3c52dc2253aecf020d00cc3bf1c2efb
 [init]
 	templatedir = ~/.git_template
 [core]
