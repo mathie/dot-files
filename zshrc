@@ -8,8 +8,8 @@ setopt hist_ignore_dups
 alias ls='ls -Fh'
 alias sudo='sudo -H -p "[%u@%h -> %U] Password:"'
 
-# Use MacVim
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/vim
+# Use MacVim (though the reattach wrapper).
+export EDITOR=${HOME}/bin/vim
 alias vim="${EDITOR}"
 
 # Dayone command line tool
