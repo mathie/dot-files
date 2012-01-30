@@ -27,6 +27,7 @@ alias gc='git commit'
 alias ga='git add'
 alias gap='git add --patch'
 alias gp='git push'
+alias gru='git remote update --prune'
 
 # Shortcuts for various remote Rails consoles
 alias fa-production-console='ssh -t deploy@console.freeagentcentral.net "(cd current && bundle exec rails console production)"'
