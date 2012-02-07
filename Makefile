@@ -5,10 +5,14 @@ BIN_DIR = bin
 
 install: install_dotfiles install_bin_dir install_vim_config
 
-install_dotfiles:
+install_dotfiles: install_ssh_config
 	for i in $(DOT_FILES); do \
 		ln -snf `pwd`/$$i ${HOME}/.$$i; \
 	done
+
+install_ssh_config:
+	mkdir -p ~/.ssh/control
+	ln -snf `pwd`/ssh_config ${HOME}/.ssh/config
 
 install_bin_dir:
 	mkdir -p ~/bin

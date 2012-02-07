@@ -1,0 +1,18 @@
+Host *
+  ControlMaster auto
+  ControlPersist yes
+  ControlPath ~/.ssh/control/%r@%h:%p.sock
+
+Host *.freeagentcentral.net
+  ForwardAgent yes
+
+Host *.local
+  ForwardAgent yes
+
+Host *.rubaidh.com
+  ForwardAgent yes
+
+Host db1.freeagentcentral.net
+  User dba
+Host db2.freeagentcentral.net
+  User dba
