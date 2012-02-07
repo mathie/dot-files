@@ -33,6 +33,12 @@ alias gru='git remote update --prune'
 alias fa-production-console='ssh -t deploy@console.freeagentcentral.net "(cd current && bundle exec rails console production)"'
 alias fa-staging-console='ssh -t deploy@web1.staging "(cd current && bundle exec rails console staging)"'
 
+# Force the terminal to be screen rather than screen-256color when sshing into
+# something else.
+if [ $TERM = 'screen-256color' ]; then
+  alias ssh='TERM="screen" ssh'
+fi
+
 # Nice prompt
 export PROMPT=$'%{\e[0;90m%}%n@%m %*%{\e[0m%}
 %{\e[0;%(?.32.31)m%}>%{\e[0m%} '
