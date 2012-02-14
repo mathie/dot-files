@@ -29,6 +29,16 @@ alias gap='git add --patch'
 alias gp='git push'
 alias gru='git remote update --prune'
 
+function gblame() {
+  for branch in $(git branch -r); do
+    echo $(git show -s --format=format:"%an ${branch/origin\//}" $branch)
+  done | sort -u
+}
+
+function gblame_me() {
+  gblame | grep "^Graeme Mathieson"
+}
+
 # Shortcuts for various remote Rails consoles
 alias fa-production-console='ssh -t deploy@console.freeagentcentral.net "(cd current && bundle exec rails console production)"'
 alias fa-staging-console='ssh -t deploy@web1.staging "(cd current && bundle exec rails console staging)"'
