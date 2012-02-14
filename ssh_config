@@ -1,7 +1,14 @@
 Host *
+  # Multiplex several connections to the same host over the same channel.
   ControlMaster auto
   ControlPersist yes
   ControlPath ~/.ssh/control/%r@%h:%p.sock
+
+  # Do protocol-level keepalives, in the hopes of foiling the Cisco ASA that
+  # seems determined to time out my sessions. 30-second pings, 4 of 'em,
+  # connections will time out two minutes after the remote host is unreachable.
+  ServerAliveInterval 30
+  ServerAliveCountMax 4
 
 Host *.freeagentcentral.net
   ForwardAgent yes
