@@ -2,3 +2,4 @@ rake
 bundler
 git-smart
 pry
+pry-doc
