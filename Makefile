@@ -35,6 +35,6 @@ install_vim_config: ~/.vim ~/.vimrc
 	ln -snf ~/.vim/vimrc ~/.vimrc
 
 rvm_install_global_gems:
-	for i in $$(rvm list strings); do \
+	for i in $$(rvm list strings|grep -v ^system); do \
 		rvm $${i}@global do gem install $$(cat global.gems); \
 	done
