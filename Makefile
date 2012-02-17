@@ -1,6 +1,6 @@
 default: install
 
-DOT_FILES = MacOSX gemrc git_template gitconfig gitignore_global tmux.conf zshrc editrc
+DOT_FILES = MacOSX gemrc git_template gitconfig gitignore_global tmux.conf zshrc editrc pryrc
 BIN_DIR = bin
 
 install: install_dotfiles install_bin_dir install_vim_config
