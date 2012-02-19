@@ -2,8 +2,18 @@ export PATH="/Users/mathie/bin:/Users/mathie/.homebrew/bin:/Users/mathie/.homebr
 
 . ~/.rvm/scripts/rvm
 
+# Shortcut some paths
+rvm=${HOME}/.rvm
+: ~rvm
+homebrew=${HOME}/.homebrew
+: ~homebrew
+
 setopt prompt_subst
 setopt hist_ignore_dups
+setopt autopushd pushdminus pushdsilent pushdtohome pushdignoredups
+
+cdpath=( ~ ~/Development )
+setopt autocd
 
 alias ls='ls -Fh'
 alias sudo='sudo -H -p "[%u@%h -> %U] Password:"'
@@ -60,7 +70,6 @@ SAVEHIST=1000000
 setopt extendedglob notify
 setopt append_history
 setopt inc_append_history
-unsetopt autocd
 bindkey -e
 
 autoload -Uz compinit
