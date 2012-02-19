@@ -52,6 +52,7 @@ function gblame_me() {
 # Shortcuts for various remote Rails consoles
 alias fa-production-console='ssh -t deploy@console.freeagentcentral.net "(cd current && bundle exec rails console production)"'
 alias fa-staging-console='ssh -t deploy@web1.staging "(cd current && bundle exec rails console staging)"'
+alias ewgeco-production-console='ssh -t ewgeco@scapa.rubaidh.com "(cd /u/apps/ewgeco/current && script/console production)"'
 
 # Force the terminal to be screen rather than screen-256color when sshing into
 # something else.
