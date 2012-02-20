@@ -38,3 +38,22 @@ rvm_install_global_gems:
 	for i in $$(rvm list strings|grep -v ^system); do \
 		rvm $${i}@global do gem install $$(cat global.gems); \
 	done
+
+update: update_dotfiles update_vim update_rvm update_homebrew
+
+update_dotfiles:
+	cd ${HOME}/Development/dot-files && \
+		git smart-pull && \
+		make
+
+update_vim:
+	cd ${HOME}/.vim && \
+		git smart-pull && \
+		git submodule update --init
+
+update_rvm:
+	rvm get stable
+
+update_homebrew:
+	brew update
+	brew outdated
