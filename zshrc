@@ -56,15 +56,24 @@ alias fa-staging-console='ssh -t deploy@web1.staging "(cd current && bundle exec
 alias ewgeco-production-console='ssh -t ewgeco@scapa.rubaidh.com "(cd /u/apps/ewgeco/current && script/console production)"'
 
 function fa-puppet-agent() {
+  local certname
+
   if [ $HOST = "mathie-old-imac.local" ]; then
     certname="blake.admin"
   elif [ $HOST = "Arabica.local" ]; then
     certname="mathie-mba.admin"
   else
     echo "Sorry, I don't know what certname to use."
-    return -1
+    return 1
   fi
   puppet agent --test --verbose --certname ${certname} --server puppet.freeagentcentral.net
+
+  # Work around a wee bug in the puppet config that sets the puppetmaster's
+  # hostname to something unreachable.
+  local tmpfile=$(mktemp -t hosts-without-puppet)
+  awk '!/puppet.freeagentcentral.net/ { print }' < /etc/hosts > ${tmpfile}
+  cat ${tmpfile} > /etc/hosts
+  rm -f ${tmpfile}
 }
 
 # Force the terminal to be screen rather than screen-256color when sshing into
