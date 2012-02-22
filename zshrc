@@ -38,6 +38,7 @@ alias ga='git add'
 alias gap='git add --patch'
 alias gp='git push'
 alias gru='git remote update --prune'
+alias gco='git checkout'
 
 function gblame() {
   for branch in $(git branch -r); do
@@ -53,6 +54,18 @@ function gblame_me() {
 alias fa-production-console='ssh -t deploy@console.freeagentcentral.net "(cd current && bundle exec rails console production)"'
 alias fa-staging-console='ssh -t deploy@web1.staging "(cd current && bundle exec rails console staging)"'
 alias ewgeco-production-console='ssh -t ewgeco@scapa.rubaidh.com "(cd /u/apps/ewgeco/current && script/console production)"'
+
+function fa-puppet-agent() {
+  if [ $HOST = "mathie-old-imac.local" ]; then
+    certname="blake.admin"
+  elif [ $HOST = "Arabica.local" ]; then
+    certname="mathie-mba.admin"
+  else
+    echo "Sorry, I don't know what certname to use."
+    return -1
+  fi
+  puppet agent --test --verbose --certname ${certname} --server puppet.freeagentcentral.net
+}
 
 # Force the terminal to be screen rather than screen-256color when sshing into
 # something else.
