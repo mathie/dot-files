@@ -80,6 +80,7 @@ function fa-puppet-agent() {
 # something else.
 if [ $TERM = 'screen-256color' ]; then
   alias ssh='TERM="screen" ssh'
+  alias vagrant='TERM="screen" vagrant'
 fi
 
 # Nice prompt
@@ -98,4 +99,3 @@ bindkey -e
 autoload -Uz compinit
 compinit
 setopt complete_in_word
-
