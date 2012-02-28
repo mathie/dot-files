@@ -89,9 +89,17 @@ if [ $TERM = 'screen-256color' ]; then
 fi
 
 # Nice prompt
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git hg svn
+zstyle ':vcs_info:*' stagedstr '%F{28}●%f'
+zstyle ':vcs_info:*' unstagedstr '%F{11}●%f'
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' get-revision true
+zstyle ':vcs_info:*' formats ' %F{blue}%b%f@%F{yellow}%8<<%i%f %c%u'
+precmd () { vcs_info }
 export PROMPT=$'%{\e[0;90m%}%n@%m %*%{\e[0m%}
 %{\e[0;%(?.32.31)m%}>%{\e[0m%} '
-export RPROMPT=$'%{\e[0;90m%}%c $(rvm-prompt i v)$(git_cwd_info)%{\e[0m%}'
+export RPROMPT=$'%{\e[0;90m%}%c $(rvm-prompt i v)${vcs_info_msg_0_}%{\e[0m%}'
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
