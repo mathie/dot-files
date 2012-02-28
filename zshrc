@@ -113,3 +113,7 @@ setopt complete_in_word
 
 # Report the runtime of commands that take longer than 5 seconds.
 REPORTTIME=5
+
+# Set the word style to the bash stylee I'm familiar with.
+autoload -U select-word-style
+select-word-style bash
