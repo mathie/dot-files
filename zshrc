@@ -10,7 +10,6 @@ homebrew=${HOME}/.homebrew
 : ~homebrew
 
 setopt prompt_subst
-setopt hist_ignore_dups
 setopt autopushd pushdminus pushdsilent pushdtohome pushdignoredups
 
 cdpath=( ~ ~/Development )
@@ -104,11 +103,13 @@ export RPROMPT=$'%{\e[0;90m%}%c $(rvm-prompt i v)${vcs_info_msg_0_}%{\e[0m%}'
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
-setopt extendedglob notify
-setopt append_history
-setopt inc_append_history
+setopt extendedglob notify append_history inc_append_history share_history hist_ignore_all_dups extended_history
 bindkey -e
 
+# Completion settings
 autoload -Uz compinit
 compinit
 setopt complete_in_word
+
+# Report the runtime of commands that take longer than 5 seconds.
+REPORTTIME=5
