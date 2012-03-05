@@ -1,4 +1,4 @@
-export PATH="/Users/mathie/bin:/Users/mathie/.homebrew/bin:/Users/mathie/.homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
+export PATH="${HOME}/bin:${HOME}/.homebrew/bin:${HOME}/.homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
 fpath=(~/.zsh_functions ~/.zsh_functions/Completion $fpath)
 
 . ~/.rvm/scripts/rvm
