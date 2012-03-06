@@ -117,3 +117,17 @@ REPORTTIME=5
 # Set the word style to the bash stylee I'm familiar with.
 autoload -U select-word-style
 select-word-style bash
+
+# Amazon EC2 configuration
+export EC2_HOME="${HOME}/.homebrew/Cellar/ec2-api-tools/1.5.2.3/jars"
+function ec2-set-role() {
+  export EC2_PRIVATE_KEY="${HOME}/.ec2/${1}-pk.pem"
+  export EC2_CERT="${HOME}/.ec2/${1}-cert.pem"
+
+  if [ ! -f ${EC2_PRIVATE_KEY} -o ! -f ${EC2_CERT} ]; then
+    echo "Certificate or private key for ${1} missing!"
+    unset EC2_PRIVATE_KEY EC2_CERT
+    return 1
+  fi
+}
+ec2-set-role rubaidh
