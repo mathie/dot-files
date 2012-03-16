@@ -80,6 +80,8 @@ function fa-puppet-agent() {
   rm -f ${tmpfile}
 }
 
+alias fa-logs='ES_BASE=http://10.8.1.130:9200/ rvm default@fa-logs exec ~/bin/fa-logs'
+
 # Force the terminal to be screen rather than screen-256color when sshing into
 # something else.
 if [ $TERM = 'screen-256color' ]; then
