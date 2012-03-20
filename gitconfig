@@ -9,3 +9,5 @@
 	excludesfile = /Users/mathie/.gitignore_global
 [alias]
 	ctags = !.git/hooks/ctags
+[push]
+	default = upstream
