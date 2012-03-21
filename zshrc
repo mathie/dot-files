@@ -119,6 +119,7 @@ REPORTTIME=5
 # Set the word style to the bash stylee I'm familiar with.
 autoload -U select-word-style
 select-word-style bash
+zstyle ':zle:*' word-chars ${WORDCHARS}
 
 # Amazon EC2 configuration
 export EC2_HOME="${HOME}/.homebrew/Cellar/ec2-api-tools/1.5.2.4/jars"
