@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>PATH</key>
-	<string>/Users/mathie/.homebrew/bin:/Users/mathie/.homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin</string>
+  <string>/Users/mathie/bin:/Users/mathie/.homebrew/bin:/Users/mathie/.homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin</string>
 	<key>JAVA_HOME</key>
 	<string>/Library/Java/Home</string>
 	<key>CLICOLOR</key>
