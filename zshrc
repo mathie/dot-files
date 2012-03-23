@@ -122,7 +122,7 @@ select-word-style bash
 zstyle ':zle:*' word-chars ${WORDCHARS}
 
 # Amazon EC2 configuration
-export EC2_HOME="${HOME}/.homebrew/Cellar/ec2-api-tools/1.5.2.4/jars"
+export EC2_HOME="${HOME}/.homebrew/Cellar/ec2-api-tools/1.5.2.5/jars"
 function ec2-set-role() {
   export EC2_PRIVATE_KEY="${HOME}/.ec2/${1}-pk.pem"
   export EC2_CERT="${HOME}/.ec2/${1}-cert.pem"

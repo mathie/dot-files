@@ -9,6 +9,6 @@
 	<key>CLICOLOR</key>
 	<string>true</string>
 	<key>EC2_HOME</key>
-  <string>/Users/mathie/.homebrew/Cellar/ec2-api-tools/1.5.2.3/jars</string>
+  <string>/Users/mathie/.homebrew/Cellar/ec2-api-tools/1.5.2.5/jars</string>
 </dict>
 </plist>
