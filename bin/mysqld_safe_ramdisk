@@ -2,7 +2,7 @@
 
 HOMEBREW_DIR="${HOME}/.homebrew"
 MYSQL_DATA_DIR="${HOMEBREW_DIR}/var/mysql"
-basedir="$(brew --prefix mysql)"
+basedir="$(${HOMEBREW_DIR}/bin/brew --prefix mysql)"
 
 # This is the RAM disk size in 512 byte blocks. Tweak to suit.
 RAM_DISK_SIZE="1048576"
