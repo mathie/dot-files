@@ -1,0 +1,39 @@
+#!/usr/bin/env bash -e
+
+HOMEBREW_DIR="${HOME}/.homebrew"
+MYSQL_DATA_DIR="${HOMEBREW_DIR}/var/mysql"
+basedir="$(brew --prefix mysql)"
+
+# This is the RAM disk size in 512 byte blocks. Tweak to suit.
+RAM_DISK_SIZE="1048576"
+
+DISK_IMAGE_NAME="mysql_data"
+
+cd ${HOMEBREW_DIR}
+
+if [ ! -e "/Volumes/${DISK_IMAGE_NAME}" ]; then
+  diskutil eraseVolume HFS+ "${DISK_IMAGE_NAME}" `hdiutil attach -nomount ram://${RAM_DISK_SIZE}`
+  rm -rf "${MYSQL_DATA_DIR}"
+  ln -s "/Volumes/${DISK_IMAGE_NAME}" "${MYSQL_DATA_DIR}"
+  ${HOMEBREW_DIR}/bin/mysql_install_db  --user=$(whoami) --basedir=${basedir} --datadir=${MYSQL_DATA_DIR} --tmpdir=/tmp
+
+  # Create myself as a user, and create a bunch of tables that I just know I'm
+  # going to want straight after booting anyway. Note that most of this is
+  # cargo culted from mysql_install_db.
+  mysqld_command="${HOMEBREW_DIR}/bin/mysqld --lc-messages-dir=${HOMEBREW_DIR}/share/mysql --bootstrap --basedir=${basedir} --datadir=${MYSQL_DATA_DIR} \
+    --log-warnings=0 --loose-skip-innodb --loose-skip-ndbcluster --tmpdir=/tmp --user=$(whoami) --max_allowed_packet=8M --default-storage-engine=myisam \
+    --net_buffer_length=16K"
+
+  (
+    echo "USE mysql;"
+    for i in localhost $(hostname) 127.0.0.1 ::1; do
+      echo "INSERT INTO user VALUES ('${i}','$(whoami)','','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'','');"
+    done
+    for i in $(seq 0 7); do
+      echo "CREATE DATABASE fac_test${i};"
+    done
+  ) | ${mysqld_command}
+fi
+
+cd ${HOMEBREW_DIR}/var
+exec ${HOMEBREW_DIR}/bin/mysqld_safe $*
