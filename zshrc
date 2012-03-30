@@ -117,10 +117,6 @@ autoload -Uz compinit
 compinit
 setopt complete_in_word
 
-# tmux helper
-alias mux='tmuxinator'
-compctl -g '~/.tmuxinator/*(:t:r)' tmuxinator
-
 # Report the runtime of commands that take longer than 5 seconds.
 REPORTTIME=5
 
@@ -142,3 +138,6 @@ function ec2-set-role() {
   fi
 }
 ec2-set-role rubaidh
+
+# For the FreeAgent parallel runner, set the worker count to the number of CPU threads available.
+export WORKER_COUNT=$(sysctl -n hw.activecpu)
