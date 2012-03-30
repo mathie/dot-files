@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for i in mathie fac scotlandonrails rubaidh tayeco; do
+  echo "Backup up organisation ${i}:"
+  rvm default exec github-backup ${i} ~/Dropbox/Personal/Backups/GitHub/${i}
+done
+
