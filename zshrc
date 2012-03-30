@@ -29,6 +29,10 @@ alias dayone="/Applications/Day\ One.app/Contents/MacOS/dayone"
 alias tmux-buffer-to-clipboard='tmux save-buffer -|pbcopy'
 alias tmux-buffer-from-clipboard='tmux set-buffer "$(pbpaste)"'
 
+# tmux helper
+alias mux='rvm default exec tmuxinator'
+compctl -g '~/.tmuxinator/*(:t:r)' tmuxinator
+
 # Helpful git aliases
 alias gs='git status --short --branch'
 alias gd='git diff'
@@ -112,6 +116,10 @@ bindkey -e
 autoload -Uz compinit
 compinit
 setopt complete_in_word
+
+# tmux helper
+alias mux='tmuxinator'
+compctl -g '~/.tmuxinator/*(:t:r)' tmuxinator
 
 # Report the runtime of commands that take longer than 5 seconds.
 REPORTTIME=5
