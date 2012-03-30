@@ -5,10 +5,13 @@ BIN_DIR = bin
 
 install: install_dotfiles install_bin_dir install_vim_config
 
-install_dotfiles: install_ssh_config install_rvm_config
+install_dotfiles: $(DOT_FILES) install_ssh_config install_rvm_config
 	for i in $(DOT_FILES); do \
 		ln -snf `pwd`/$$i ${HOME}/.$$i; \
 	done
+
+gitconfig: gitconfig.public gitconfig.private
+	cat $^ > $@
 
 install_ssh_config:
 	mkdir -p ~/.ssh/control
