@@ -1,0 +1,5 @@
+--smart-case
+--sort-files
+--pager='less -RS'
+--type-set coffeescript=.coffee
+--type-set scss=.scss
