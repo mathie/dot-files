@@ -30,8 +30,11 @@ alias tmux-buffer-to-clipboard='tmux save-buffer -|pbcopy'
 alias tmux-buffer-from-clipboard='tmux set-buffer "$(pbpaste)"'
 
 # tmux helper
-alias mux='rvm default exec tmuxinator'
+alias mux='tmuxinator'
 compctl -g '~/.tmuxinator/*(:t:r)' tmuxinator
+for i in ~/.tmuxinator/*(:t:r); do
+  alias ${i}="rvm default exec tmuxinator ${i}"
+done
 
 # Helpful git aliases
 alias gs='git status --short --branch'
