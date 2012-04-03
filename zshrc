@@ -18,6 +18,10 @@ setopt autocd
 alias ls='ls -Fh'
 alias sudo='sudo -H -p "[%u@%h -> %U] Password:"'
 
+export PAGER='less'
+export LESS='-FiMRsS~'
+export LESSOPEN="~/.homebrew/bin/lesspipe.sh %s"
+
 # Use MacVim (though the reattach wrapper).
 export EDITOR=${HOME}/bin/vim
 alias vim="${EDITOR}"
