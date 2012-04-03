@@ -1,0 +1,12 @@
+project_name: Weather
+project_root: ~/Development/weather
+tabs:
+  - editor: vim
+  - shell:
+  - console: play console
+  - server:
+      layout: even-vertical
+      panes:
+        - play run
+        - tail -F logs/application.log
+  - tests: play \~test
