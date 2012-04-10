@@ -19,7 +19,7 @@ alias ls='ls -Fh'
 alias sudo='sudo -H -p "[%u@%h -> %U] Password:"'
 
 export PAGER='less'
-export LESS='-FiMRsS~'
+export LESS='-iMRsS~'
 export LESSOPEN="~/.homebrew/bin/lesspipe.sh %s"
 
 # Use MacVim (though the reattach wrapper).
