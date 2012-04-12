@@ -3,5 +3,9 @@
 for i in mathie fac scotlandonrails rubaidh tayeco; do
   echo "Backup up organisation ${i}:"
   rvm default exec github-backup ${i} ~/Dropbox/Personal/Backups/GitHub/${i}
+  if [ ${i} != 'tayeco' ]; then # Last on the list
+    /bin/echo -n "Waiting for a bit to see if that avoids the 403s"
+    for i in $(seq 1 15); do sleep 1; /bin/echo -n '.'; done
+    echo " done"
+  fi
 done
-
