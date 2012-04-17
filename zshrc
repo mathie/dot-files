@@ -1,8 +1,10 @@
-export PATH="${HOME}/bin:${HOME}/.homebrew/bin:${HOME}/.homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
+export PATH="${HOME}/bin:${HOME}/.rbenv/bin:${HOME}/.homebrew/bin:${HOME}/.homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
 fpath=(~/.zsh_functions ~/.zsh_functions/Completion $fpath)
 
 homebrew=${HOME}/.homebrew
 : ~homebrew
+
+eval "$(rbenv init -)"
 
 setopt prompt_subst
 setopt autopushd pushdminus pushdsilent pushdtohome pushdignoredups
@@ -105,7 +107,7 @@ zstyle ':vcs_info:*' formats ' %F{blue}%b%f@%F{yellow}%8<<%i%f %c%u'
 precmd () { vcs_info }
 export PROMPT=$'%{\e[0;90m%}%n@%m %*%{\e[0m%}
 %{\e[0;%(?.32.31)m%}>%{\e[0m%} '
-export RPROMPT=$'%{\e[0;90m%}%c $(echo fixme: rbenv version)${vcs_info_msg_0_}%{\e[0m%}'
+export RPROMPT=$'%{\e[0;90m%}%c $(rbenv version-name)${vcs_info_msg_0_}%{\e[0m%}'
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
