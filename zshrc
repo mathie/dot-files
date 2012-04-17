@@ -20,7 +20,6 @@ alias sudo='sudo -H -p "[%u@%h -> %U] Password:"'
 
 export PAGER='less'
 export LESS='-iMRsS~'
-export LESSOPEN="~/.homebrew/bin/lesspipe.sh %s"
 
 # Use MacVim (though the reattach wrapper).
 export EDITOR=${HOME}/bin/vim
