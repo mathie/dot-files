@@ -142,5 +142,3 @@ ec2-set-role rubaidh
 
 # For the FreeAgent parallel runner, set the worker count to the number of CPU threads available.
 export WORKER_COUNT=$(sysctl -n hw.activecpu)
-
-fortune | cowsay | rvm default exec lolcat
