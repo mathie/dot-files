@@ -5,6 +5,9 @@ homebrew=${HOME}/.homebrew
 : ~homebrew
 
 eval "$(rbenv init -)"
+function rbenv_global_exec() {
+  (rbenv shell $(rbenv global); exec $*)
+}
 
 setopt prompt_subst
 setopt autopushd pushdminus pushdsilent pushdtohome pushdignoredups
@@ -33,7 +36,7 @@ alias tmux-buffer-from-clipboard='tmux set-buffer "$(pbpaste)"'
 alias mux='tmuxinator'
 compctl -g '~/.tmuxinator/*(:t:r)' tmuxinator
 for i in ~/.tmuxinator/*(:t:r); do
-  alias ${i}="rvm default exec tmuxinator ${i}"
+  alias ${i}="rbenv_global_exec tmuxinator ${i}"
 done
 
 # Helpful git aliases
@@ -43,7 +46,7 @@ alias gdc='git diff --cached'
 alias glog='git log --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
 alias gl='glog --graph'
 alias gla='gl --all'
-alias gup='rvm default exec git smart-pull'
+alias gup='rbenv_global_exec git smart-pull'
 alias gc='git commit'
 alias ga='git add'
 alias gap='git add --patch'
@@ -87,7 +90,7 @@ function fa-puppet-agent() {
   rm -f ${tmpfile}
 }
 
-alias fa-logs='ES_BASE=http://10.8.1.130:9200/ rvm default@fa-logs exec ~/bin/fa-logs'
+alias fa-logs='ES_BASE=http://node2.ovh.elasticsearch:9200/ rbenv_global_exec ~/bin/fa-logs'
 
 # Force the terminal to be screen rather than screen-256color when sshing into
 # something else.
