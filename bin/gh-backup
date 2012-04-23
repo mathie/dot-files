@@ -1,5 +1,11 @@
 #!/bin/sh
 
+eval "$(rbenv init -)"
+
+function rbenv_global_exec() {
+  (rbenv shell $(rbenv global); exec $*)
+}
+
 for i in mathie fac scotlandonrails rubaidh tayeco; do
   echo "Backup up organisation ${i}:"
   rbenv_global_exec github-backup ${i} ~/Dropbox/Personal/Backups/GitHub/${i}
