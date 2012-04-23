@@ -8,6 +8,7 @@ eval "$(rbenv init -)"
 function rbenv_global_exec() {
   (rbenv shell $(rbenv global); exec $*)
 }
+alias be='bundle exec'
 
 setopt prompt_subst
 setopt autopushd pushdminus pushdsilent pushdtohome pushdignoredups
