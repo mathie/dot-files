@@ -11,3 +11,5 @@
 	ctags = !.git/hooks/ctags
 [push]
 	default = upstream
+[credential]
+	helper = osxkeychain
