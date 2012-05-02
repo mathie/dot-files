@@ -4,11 +4,7 @@
 <dict>
 	<key>PATH</key>
   <string>/Users/mathie/bin:/Users/mathie/.homebrew/bin:/Users/mathie/.homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin</string>
-	<key>JAVA_HOME</key>
-	<string>/Library/Java/Home</string>
 	<key>CLICOLOR</key>
 	<string>true</string>
-	<key>EC2_HOME</key>
-  <string>/Users/mathie/.homebrew/Cellar/ec2-api-tools/1.5.2.5/jars</string>
 </dict>
 </plist>

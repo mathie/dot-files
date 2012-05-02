@@ -1,6 +1,8 @@
 export PATH="${HOME}/bin:${HOME}/.rbenv/bin:${HOME}/.homebrew/bin:${HOME}/.homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
 fpath=(~/.zsh_functions ~/.zsh_functions/Completion $fpath)
 
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 homebrew=${HOME}/.homebrew
 : ~homebrew
 
