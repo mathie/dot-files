@@ -23,3 +23,9 @@ Host db1.freeagentcentral.net
   User dba
 Host db2.freeagentcentral.net
   User dba
+
+Host smartos.local
+  Hostname localhost
+  Port 8322
+  User root
+  ForwardAgent yes
