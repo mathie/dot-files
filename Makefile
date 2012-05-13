@@ -1,9 +1,10 @@
 default: install
 
 DOT_FILES = MacOSX gemrc git_template gitconfig gitignore_global tmux.conf zshrc zsh_functions editrc pryrc tmuxinator ackrc my.cnf bashrc bash_profile
+HOMEBREW_CONFIG_FILES = etc/my.cnf
 BIN_DIR = bin
 
-install: install_dotfiles install_bin_dir install_vim_config
+install: install_dotfiles install_homebrew_config_files install_bin_dir install_vim_config
 
 install_dotfiles: $(DOT_FILES) install_ssh_config
 	for i in $(DOT_FILES); do \
@@ -16,6 +17,11 @@ gitconfig: gitconfig.public gitconfig.private
 install_ssh_config:
 	mkdir -p ~/.ssh/control
 	ln -snf `pwd`/ssh_config ${HOME}/.ssh/config
+
+install_homebrew_config_files:
+	for i in $(HOMEBREW_CONFIG_FILES); do \
+		ln -snf `pwd`/homebrew/$$i ${HOME}/.homebrew/$$i; \
+	done
 
 install_bin_dir:
 	mkdir -p ~/bin
