@@ -10,6 +10,9 @@ Host *
   ServerAliveInterval 5
   ServerAliveCountMax 3
 
+Host *.bidforwine.co.uk
+  Port 2201
+
 Host *.freeagentcentral.net
   ForwardAgent yes
 
