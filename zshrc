@@ -1,9 +1,9 @@
-export PATH="${HOME}/bin:${HOME}/.rbenv/bin:${HOME}/.homebrew/bin:${HOME}/.homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
+export PATH="${HOME}/bin:${HOME}/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
 fpath=(~/.zsh_functions ~/.zsh_functions/Completion $fpath)
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 
-homebrew=${HOME}/.homebrew
+homebrew=/usr/local
 : ~homebrew
 
 eval "$(rbenv init -)"
@@ -135,7 +135,7 @@ select-word-style bash
 zstyle ':zle:*' word-chars ${WORDCHARS}
 
 # Amazon EC2 configuration
-export EC2_HOME="${HOME}/.homebrew/Cellar/ec2-api-tools/1.5.2.5/jars"
+export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.5.2.5/jars"
 function ec2-set-role() {
   export EC2_PRIVATE_KEY="${HOME}/.ec2/${1}-pk.pem"
   export EC2_CERT="${HOME}/.ec2/${1}-cert.pem"

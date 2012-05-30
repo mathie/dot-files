@@ -1,6 +1,6 @@
 #!/usr/bin/env bash -e
 
-HOMEBREW_DIR="${HOME}/.homebrew"
+HOMEBREW_DIR="/usr/local"
 MYSQL_DATA_DIR="${HOMEBREW_DIR}/var/mysql"
 basedir="$(${HOMEBREW_DIR}/bin/brew --prefix mysql)"
 

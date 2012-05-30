@@ -1,2 +1,2 @@
 #!/bin/sh
-exec reattach-to-user-namespace ${HOME}/.homebrew/Cellar/macvim/7.3-64/MacVim.app/Contents/MacOS/vim $*
+exec reattach-to-user-namespace /usr/local/Cellar/macvim/7.3-64/MacVim.app/Contents/MacOS/vim $*

@@ -2,7 +2,7 @@
 
 This is the current set of dot-files I'm sharing between computers. They're
 designed only to work with Mac OS X and only with homebrew installed in
-~/.homebrew. In other words, they're designed to work for *me* and me alone.
+/usr/local. In other words, they're designed to work for *me* and me alone.
 
 That said, feel free to find some inspiration. :-)
 

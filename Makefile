@@ -20,7 +20,7 @@ install_ssh_config:
 
 install_homebrew_config_files:
 	for i in $(HOMEBREW_CONFIG_FILES); do \
-		ln -snf `pwd`/homebrew/$$i ${HOME}/.homebrew/$$i; \
+		ln -snf `pwd`/homebrew/$$i /usr/local/$$i; \
 	done
 
 install_bin_dir:
