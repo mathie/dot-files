@@ -64,7 +64,7 @@ update_rbenv_main:
 		git clone git://github.com/sstephenson/rbenv.git ~/.rbenv; \
 	fi
 
-update_rbenv_plugins: update_ruby_build update_rbenv_bundler
+update_rbenv_plugins: update_ruby_build
 
 update_ruby_build:
 	if [ -d ~/.rbenv/plugins/ruby-build ]; then \
@@ -72,11 +72,3 @@ update_ruby_build:
 	else \
 		git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build; \
 	fi
-
-update_rbenv_bundler:
-	if [ -d ~/.rbenv/plugins/bundler ]; then \
-		(cd ~/.rbenv/plugins/bundler; git smart-pull); \
-	else \
-		git clone git://github.com/carsomyr/rbenv-bundler.git ~/.rbenv/plugins/bundler; \
-	fi
-
