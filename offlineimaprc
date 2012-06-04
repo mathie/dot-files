@@ -1,0 +1,44 @@
+[general]
+accounts = FreeAgent
+
+[Account FreeAgent]
+localrepository = FreeAgentLocal
+remoterepository = FreeAgentGoogle
+
+[Account Personal]
+localrepository = PersonalLocal
+remoterepository = PersonalGoogle
+
+[Account Rubaidh]
+localrepository = RubaidhLocal
+remoterepository = RubaidhGoogle
+
+[Repository FreeAgentLocal]
+type = Maildir
+localfolders = ~/DropBox/Personal/Backups/Mail/FreeAgent
+
+[Repository FreeAgentGoogle]
+type = Gmail
+remoteuser = graeme@freeagent.com
+remotepassfile = ~/.offlineimap/password-FreeAgentGoogle
+readonly = True
+
+[Repository PersonalLocal]
+type = Maildir
+localfolders = ~/DropBox/Personal/Backups/Mail/Personal
+
+[Repository PersonalGoogle]
+type = Gmail
+remoteuser = mathie@woss.name
+remotepassfile = ~/.offlineimap/password-PersonalGoogle
+readonly = True
+
+[Repository RubaidhLocal]
+type = Maildir
+localfolders = ~/DropBox/Personal/Backups/Mail/Rubaidh
+
+[Repository RubaidhGoogle]
+type = Gmail
+remoteuser = mathie@rubaidh.com
+remotepassfile = ~/.offlineimap/password-RubaidhGoogle
+readonly = True
