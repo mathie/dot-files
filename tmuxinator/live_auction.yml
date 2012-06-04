@@ -1,0 +1,11 @@
+project_name: BfW Live Auction
+project_root: ~/Development/BidForWine/live_auction
+tabs:
+  - editor: vim
+  - shell: git smart-pull
+  - server:
+      layout: even-vertical
+      panes:
+        - bundle exec foreman start
+        - tail -f log/development.log
+  - guard: bundle exec guard start
