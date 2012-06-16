@@ -30,9 +30,7 @@ if [ ! -e "/Volumes/${DISK_IMAGE_NAME}" ]; then
     for i in localhost $(hostname) 127.0.0.1 ::1; do
       echo "INSERT INTO user VALUES ('${i}','$(whoami)','','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'','');"
     done
-    for i in $(seq 0 7); do
-      echo "CREATE DATABASE fac_test${i};"
-    done
+    echo "CREATE DATABASE mathie;"
   ) | ${mysqld_command}
 fi
 

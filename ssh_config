@@ -11,24 +11,11 @@ Host *
   ServerAliveCountMax 3
 
 Host *.bidforwine.co.uk
-  Port 2201
-
-Host *.freeagentcentral.net
   ForwardAgent yes
+  Port 2201
 
 Host *.local
   ForwardAgent yes
 
 Host *.rubaidh.com
-  ForwardAgent yes
-
-Host db1.freeagentcentral.net
-  User dba
-Host db2.freeagentcentral.net
-  User dba
-
-Host smartos.local
-  Hostname localhost
-  Port 8322
-  User root
   ForwardAgent yes
