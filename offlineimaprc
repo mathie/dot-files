@@ -1,10 +1,6 @@
 [general]
-accounts = FreeAgent, Personal, Rubaidh
-maxsyncaccounts = 3
-
-[Account FreeAgent]
-localrepository = FreeAgentLocal
-remoterepository = FreeAgentGoogle
+accounts = Personal, Rubaidh
+maxsyncaccounts = 2
 
 [Account Personal]
 localrepository = PersonalLocal
@@ -13,18 +9,6 @@ remoterepository = PersonalGoogle
 [Account Rubaidh]
 localrepository = RubaidhLocal
 remoterepository = RubaidhGoogle
-
-[Repository FreeAgentLocal]
-type = Maildir
-localfolders = ~/DropBox/Personal/Backups/Mail/FreeAgent
-
-[Repository FreeAgentGoogle]
-type = Gmail
-remoteuser = graeme@freeagent.com
-remotepassfile = ~/.offlineimap/password-FreeAgentGoogle
-readonly = True
-maxconnections = 3
-folderfilter = lambda folder: not folder.endswith('Important')
 
 [Repository PersonalLocal]
 type = Maildir
