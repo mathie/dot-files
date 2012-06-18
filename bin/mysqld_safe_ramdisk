@@ -15,7 +15,7 @@ if [ ! -e "/Volumes/${DISK_IMAGE_NAME}" ]; then
   diskutil eraseVolume HFS+ "${DISK_IMAGE_NAME}" `hdiutil attach -nomount ram://${RAM_DISK_SIZE}`
   rm -rf "${MYSQL_DATA_DIR}"
   ln -s "/Volumes/${DISK_IMAGE_NAME}" "${MYSQL_DATA_DIR}"
-  rm -rf "/Volumes/${DISK_IMAGE_NAME}/.fseventsd"
+  rm -rf "/Volumes/${DISK_IMAGE_NAME}/.fseventsd" || true
   ${HOMEBREW_DIR}/bin/mysql_install_db  --user=$(whoami) --basedir=${basedir} --datadir=${MYSQL_DATA_DIR} --tmpdir=/tmp
 
   # Create myself as a user, and create a bunch of tables that I just know I'm
