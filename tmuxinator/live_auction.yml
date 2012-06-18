@@ -3,9 +3,7 @@ project_root: ~/Development/BidForWine/live_auction
 tabs:
   - editor: vim
   - shell: git smart-pull
-  - server:
-      layout: even-vertical
-      panes:
-        - bundle exec foreman start
-        - tail -f log/development.log
+  - server: bundle exec foreman start
   - guard: bundle exec guard start
+  - production-logs: heroku logs --tail --app live-auction-production
+  - staging-logs: heroku logs --tail --app live-auction-staging
