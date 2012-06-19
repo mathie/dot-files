@@ -1,13 +1,4 @@
-# Perl local installation
-export PERL_LOCAL_LIB_ROOT="${HOME}/.perl5";
-export PERL_MB_OPT="--install_base ${PERL_LOCAL_LIB_ROOT}";
-export PERL_MM_OPT="INSTALL_BASE=${PERL_LOCAL_LIB_ROOT}";
-export PERL5LIB="${PERL_LOCAL_LIB_ROOT}/lib/perl5/darwin-thread-multi-2level:${PERL_LOCAL_LIB_ROOT}/lib/perl5";
-
-export PATH="${HOME}/bin:${HOME}/.rbenv/bin:${PERL_LOCAL_LIB_ROOT}/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
 fpath=(~/.zsh_functions ~/.zsh_functions/Completion $fpath)
-
-export JAVA_HOME=$(/usr/libexec/java_home)
 
 homebrew=/usr/local
 : ~homebrew
@@ -27,11 +18,6 @@ setopt autocd
 alias ls='ls -Fh'
 alias sudo='sudo -H -p "[%u@%h -> %U] Password:"'
 
-export PAGER='less'
-export LESS='-iMRsS~'
-
-# Use MacVim (though the reattach wrapper).
-export EDITOR=${HOME}/bin/vim
 alias vim="${EDITOR}"
 
 # Dayone command line tool
@@ -116,7 +102,6 @@ select-word-style bash
 zstyle ':zle:*' word-chars ${WORDCHARS}
 
 # Amazon EC2 configuration
-export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.5.2.5/jars"
 function ec2-set-role() {
   export EC2_PRIVATE_KEY="${HOME}/.ec2/${1}-pk.pem"
   export EC2_CERT="${HOME}/.ec2/${1}-cert.pem"
@@ -128,6 +113,3 @@ function ec2-set-role() {
   fi
 }
 ec2-set-role rubaidh
-
-# For the FreeAgent parallel runner, set the worker count to the number of CPU threads available.
-export WORKER_COUNT=$(sysctl -n hw.activecpu)
