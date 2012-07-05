@@ -7,6 +7,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
 export PAGER='less'
 export LESS='-iMRsS~'
+export NODE_PATH="/usr/local/lib/node_modules"
 
 # Use MacVim (though the reattach wrapper).
 export EDITOR=${HOME}/bin/vim
