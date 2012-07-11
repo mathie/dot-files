@@ -3,9 +3,5 @@ project_root: ~/Development/ewgeco/my_ewgeco
 tabs:
   - editor: vim
   - shell: git smart-pull
-  - server:
-      layout: even-vertical
-      panes:
-        - bundle exec foreman start
-        - tail -f log/development.log
+  - server: bundle exec foreman start
   - guard: bundle exec guard start
