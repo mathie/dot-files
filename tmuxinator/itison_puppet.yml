@@ -1,0 +1,9 @@
+project_name: ItIsOn Puppet
+project_root: ~/Development/ItIsOn/puppet
+tabs:
+  - vim: vim
+  - vms:
+      layout: even-horizontal
+      panes:
+        - # empty
+        - # empty
