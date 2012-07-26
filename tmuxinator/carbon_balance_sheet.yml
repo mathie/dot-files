@@ -1,0 +1,6 @@
+project_name: Carbon Balance Sheet
+project_root: ~/Development/ewgeco/carbon_balance_sheet
+tabs:
+  - editor: vim
+  - shell: git smart-pull
+  - server: bundle exec foreman start
