@@ -1,5 +1,5 @@
-project_name: ItIsOn Puppet
-project_root: ~/Development/ItIsOn/puppet
+project_name: Ewgeco Puppet
+project_root: ~/Development/ewgeco/puppet
 tabs:
   - vim: vim
   - vms:
