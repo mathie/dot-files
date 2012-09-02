@@ -1,0 +1,7 @@
+project_name: Live Chat
+project_root: ~/Development/BidForWine/chat
+tabs:
+  - editor: vim
+  - shell: git smart-pull
+  - server: bundle exec foreman start
+  - pusher: bundle exec script/pusher
