@@ -12,3 +12,5 @@ export NODE_PATH="/usr/local/lib/node_modules"
 # Use MacVim (though the reattach wrapper).
 export EDITOR=${HOME}/bin/vim
 export CLICOLOR=true
+
+export SBT_OPTS='-XX:MaxPermSize=256M'
