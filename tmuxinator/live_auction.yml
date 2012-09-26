@@ -5,5 +5,3 @@ tabs:
   - shell: git smart-pull
   - server: bundle exec foreman start
   - guard: bundle exec guard start
-  - production-logs: heroku logs --tail --app live-auction-production
-  - staging-logs: heroku logs --tail --app live-auction-staging

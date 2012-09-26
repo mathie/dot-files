@@ -1,6 +1,0 @@
-project_name: Client Side Auction
-project_root: ~/Development/BidForWine/client_side_auction
-tabs:
-  - editor: vim
-  - shell: git smart-pull
-  - server: bundle exec foreman start
