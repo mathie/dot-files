@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    CoffeeTags (0.0.2.6)
     colorize (0.5.8)
     git-smart (0.1.9)
       colorize
@@ -10,5 +11,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  CoffeeTags
   git-smart
   tmuxinator
