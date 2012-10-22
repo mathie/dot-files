@@ -2,15 +2,30 @@ GEM
   remote: http://rubygems.org/
   specs:
     CoffeeTags (0.0.2.6)
+    awesome_print (1.1.0)
+    coderay (1.0.8)
     colorize (0.5.8)
     git-smart (0.1.9)
       colorize
+    method_source (0.8.1)
+    pry (0.9.10)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.3.1)
+    pry-doc (0.4.4)
+      pry (>= 0.9.9.6)
+      yard (~> 0.8.1)
+    slop (3.3.3)
     tmuxinator (0.5.0)
+    yard (0.8.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   CoffeeTags
+  awesome_print
   git-smart
+  pry
+  pry-doc
   tmuxinator
