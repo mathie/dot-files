@@ -1,0 +1,7 @@
+project_name: Reecovid
+project_root: ~/Development/Reecovid/reecovid
+tabs:
+  - editor: vim
+  - shell: git smart-pull
+  - server: bundle exec foreman start
+  - guard: bundle exec guard start
