@@ -1,0 +1,10 @@
+project_name: Rubaidh Puppet
+project_root: ~/Development/Rubaidh/puppet
+tabs:
+  - vim: vim
+  - vms:
+      layout: even-horizontal
+      panes:
+        - # empty
+        - # empty
+  - guard: bundle exec guard start
