@@ -13,4 +13,5 @@ export NODE_PATH="/usr/local/lib/node_modules"
 export EDITOR=${HOME}/bin/vim
 export CLICOLOR=true
 
+export JAVACMD='/usr/local/bin/drip'
 export SBT_OPTS='-XX:MaxPermSize=256M'
