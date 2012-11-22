@@ -4,7 +4,7 @@ DOT_FILES = MacOSX gemrc git_template gitconfig gitignore_global tmux.conf zshen
 HOMEBREW_CONFIG_FILES = etc/my.cnf
 BIN_DIR = bin
 
-install: install_dotfiles install_homebrew_config_files install_bin_dir install_vim_config
+install: install_dotfiles install_homebrew_config_files install_bin_dir install_vim_config install_launchagents
 
 install_dotfiles: $(DOT_FILES) install_ssh_config
 	for i in $(DOT_FILES); do \
@@ -38,6 +38,11 @@ install_vim_config: ~/.vim ~/.vimrc
 
 ~/.vimrc:
 	ln -snf ~/.vim/vimrc ~/.vimrc
+
+install_launchagents:
+	for i in LaunchAgents/*.plist; do \
+		ln -snf `pwd`/$$i ${HOME}/Library/$$i; \
+	done
 
 update: update_dotfiles update_vim update_rbenv update_homebrew
 
