@@ -20,6 +20,9 @@ Host *.local
 Host *.rubaidh.com
   ForwardAgent yes
 
+Host *.rubaidh.net
+  ForwardAgent yes
+
 Host *.itison.com
   User gavin
   Port 2712
