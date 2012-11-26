@@ -44,7 +44,7 @@ install_launchagents:
 		ln -snf `pwd`/$$i ${HOME}/Library/$$i; \
 	done
 
-update: update_dotfiles update_vim update_rbenv update_homebrew
+update: update_dotfiles update_vim update_rbenv update_homebrew update_bundler
 
 update_dotfiles:
 	cd ${HOME}/Development/dot-files && \
@@ -77,3 +77,6 @@ update_ruby_build:
 	else \
 		git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build; \
 	fi
+
+update_bundler:
+	bundle update
