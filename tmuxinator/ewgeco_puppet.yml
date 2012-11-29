@@ -1,5 +1,5 @@
 project_name: Ewgeco Puppet
-project_root: ~/Development/ewgeco/puppet
+project_root: ~/Development/Ewgeco/puppet
 tabs:
   - vim: vim
   - vms:
