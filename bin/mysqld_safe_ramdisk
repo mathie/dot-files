@@ -1,0 +1,17 @@
+#!/bin/bash
+
+megabyte=$((1024 * 1024))
+gigabyte=$((1024 * ${megabyte}))
+
+block_size=512
+
+ramdisk_size=$((4 * ${gigabyte}))
+ramdisk_blocks=$((${ramdisk_size} / ${block_size}))
+
+if [ ! -e /Volumes/mysql ]; then
+  diskutil erasevolume HFS+ 'mysql' $(hdiutil attach -nomount ram://${ramdisk_blocks})
+  unset TMPDIR
+  mysql_install_db --user=$(whoami) --basedir=$(brew --prefix mysql) --datadir=/Volumes/mysql --tmpdir=/tmp
+fi
+
+exec /usr/local/bin/mysqld_safe --datadir=/Volumes/mysql $*
