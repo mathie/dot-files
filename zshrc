@@ -80,7 +80,7 @@ zstyle ':vcs_info:*' formats ' %F{blue}%b%f@%F{yellow}%8<<%i%f %c%u'
 precmd () { vcs_info }
 export PROMPT=$'%{\e[0;90m%}%n@%m %*%{\e[0m%}
 %{\e[0;%(?.32.31)m%}>%{\e[0m%} '
-export RPROMPT=$'%{\e[0;90m%}%c $(rbenv version-name)${vcs_info_msg_0_}%{\e[0m%}'
+export RPROMPT=$'%{\e[0;90m%}%2~ $(rbenv version-name)${vcs_info_msg_0_}%{\e[0m%}'
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
