@@ -59,6 +59,8 @@ function gblame_me() {
   gblame | grep "^Graeme Mathieson"
 }
 
+zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
+
 # Shortcuts for various remote Rails consoles
 alias ewgeco-production-console='ssh -t ewgeco@scapa.rubaidh.com "(cd /u/apps/ewgeco/current && script/console production)"'
 
