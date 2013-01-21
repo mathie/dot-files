@@ -1,2 +1,2 @@
 #!/bin/sh
-exec reattach-to-user-namespace /usr/local/Library/LinkedKegs/macvim/MacVim.app/Contents/MacOS/vim "$*"
+exec reattach-to-user-namespace /usr/local/Library/LinkedKegs/macvim/MacVim.app/Contents/MacOS/vim "$@"
