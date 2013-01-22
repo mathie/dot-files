@@ -113,5 +113,11 @@ function ec2-set-role() {
     unset EC2_PRIVATE_KEY EC2_CERT
     return 1
   fi
+
+  if [ -f ${HOME}/.ec2/${1}-default-region ]; then
+    export EC2_URL="https://ec2.$(cat ${HOME}/.ec2/${1}-default-region).amazonaws.com"
+  else
+    unset EC2_URL
+  fi
 }
 ec2-set-role rubaidh
