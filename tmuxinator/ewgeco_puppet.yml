@@ -5,6 +5,6 @@ tabs:
   - vms:
       layout: even-horizontal
       panes:
-        - # empty
-        - # empty
+        - ec2-set-role ewgeco
+        - ec2-set-role ewgeco
   - guard: bundle exec guard start
