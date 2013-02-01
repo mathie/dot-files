@@ -110,6 +110,7 @@ REPORTTIME=5
 # Set the word style to the bash stylee I'm familiar with.
 autoload -U select-word-style
 select-word-style bash
+WORDCHARS=${WORDCHARS:s#/##}
 zstyle ':zle:*' word-chars ${WORDCHARS}
 
 # Amazon EC2 configuration
