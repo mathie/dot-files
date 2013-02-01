@@ -19,6 +19,8 @@ alias ls='ls -Fh'
 alias sudo='sudo -H -p "[%u@%h -> %U] Password:"'
 
 alias vim="${EDITOR}"
+alias :e="${EDITOR}"
+alias :r="cat"
 
 # Dayone command line tool
 alias dayone="/Applications/Day\ One.app/Contents/MacOS/dayone"
