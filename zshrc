@@ -99,6 +99,10 @@ bindkey -e
 autoload -Uz compinit
 compinit
 setopt complete_in_word
+zstyle ':completion:*:default' list-colors ''
+
+# shift-tab reverses through completions
+bindkey '^[[Z' reverse-menu-complete
 
 # Report the runtime of commands that take longer than 5 seconds.
 REPORTTIME=5
