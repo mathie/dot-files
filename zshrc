@@ -50,6 +50,9 @@ alias gap='git add --patch'
 alias gp='git push'
 alias gru='git remote update --prune'
 alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gb='git branch'
+alias gba='git branch -a'
 
 function gblame() {
   for branch in $(git branch -r); do
