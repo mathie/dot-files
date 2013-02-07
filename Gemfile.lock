@@ -25,7 +25,7 @@ GEM
     rcodetools (0.8.5.0)
     slop (3.4.3)
     tmuxinator (0.5.0)
-    yard (0.8.3)
+    yard (0.8.4.1)
 
 PLATFORMS
   ruby
