@@ -29,6 +29,22 @@ alias dayone="/Applications/Day\ One.app/Contents/MacOS/dayone"
 alias tmux-buffer-to-clipboard='tmux save-buffer -|pbcopy'
 alias tmux-buffer-from-clipboard='tmux set-buffer "$(pbpaste)"'
 
+function tmux-new-session() {
+  local session_name=${1}
+
+  if [ -z "${session_name}" ]; then
+    echo "Usage: tmux-new-session <session name>"
+    return 1
+  fi
+
+  if [ ! -z "${TMUX}" ]; then
+    env TMUX= tmux new-session -d -s ${session_name}
+    tmux switch-client -t ${session_name}
+  else
+    tmux new-session -s ${session_name}
+  fi
+}
+
 # tmux helper
 alias mux='tmuxinator'
 compctl -g '~/.tmuxinator/*(:t:r)' tmuxinator
