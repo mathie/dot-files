@@ -3,7 +3,7 @@ GEM
   specs:
     CoffeeTags (0.0.3.0)
     awesome_print (1.1.0)
-    coderay (1.0.8)
+    coderay (1.0.9)
     colorize (0.5.8)
     configuration (1.3.2)
     git-smart (0.1.9)
