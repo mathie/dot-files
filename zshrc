@@ -22,9 +22,6 @@ alias vim="${EDITOR}"
 alias :e="${EDITOR}"
 alias :r="cat"
 
-# Dayone command line tool
-alias dayone="/Applications/Day\ One.app/Contents/MacOS/dayone"
-
 # Helpful tmux aliases for interacting with the system clipboard.
 alias tmux-buffer-to-clipboard='tmux save-buffer -|pbcopy'
 alias tmux-buffer-from-clipboard='tmux set-buffer "$(pbpaste)"'
