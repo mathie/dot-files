@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org/'
 
 # tmux bits I live on
 gem 'tmuxinator'
