@@ -42,7 +42,7 @@ install_vim_config: ~/.vim ~/.vimrc
 update: update_dotfiles update_vim update_rbenv update_homebrew update_bundler
 
 update_dotfiles:
-	cd ${HOME}/Development/dot-files && \
+	cd ${HOME}/Development/Personal/dot-files && \
 		git smart-pull && \
 		make
 
