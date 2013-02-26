@@ -21,3 +21,6 @@ gem 'open_gem'
 # Primarily for xmpfilter, which I'm promising myself I'll use now that it
 # bugged me so much I went looking for it...
 gem 'rcodetools'
+
+# Spring for faster app launch time
+gem 'spring'
