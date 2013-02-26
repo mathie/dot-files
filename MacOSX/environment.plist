@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>PATH</key>
-  <string>/Users/mathie/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin</string>
+  <string>bin:/Users/mathie/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin</string>
 	<key>CLICOLOR</key>
 	<string>true</string>
 </dict>
