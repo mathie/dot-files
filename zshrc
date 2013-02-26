@@ -3,7 +3,7 @@ fpath=(~/.zsh_functions ~/.zsh_functions/Completion $fpath)
 homebrew=/usr/local
 : ~homebrew
 
-eval "$(rbenv init -)"
+eval "$(rbenv init - | grep -v export.PATH)"
 function rbenv_global_exec() {
   (rbenv shell $(rbenv global); exec $*)
 }
