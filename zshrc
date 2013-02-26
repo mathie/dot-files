@@ -50,6 +50,7 @@ for i in ~/.tmuxinator/*(:t:r); do
 done
 
 # Helpful git aliases
+alias git='/usr/local/bin/hub'
 alias gs='git status --short --branch'
 alias gd='git diff'
 alias gdc='git diff --cached'
