@@ -3,6 +3,12 @@ fpath=(~/.zsh_functions ~/.zsh_functions/Completion $fpath)
 homebrew=/usr/local
 : ~homebrew
 
+# Completion settings
+autoload -Uz compinit
+compinit
+setopt complete_in_word
+zstyle ':completion:*:default' list-colors ''
+
 eval "$(rbenv init - | grep -v export.PATH)"
 function rbenv_global_exec() {
   (rbenv shell $(rbenv global); exec $*)
@@ -49,8 +55,11 @@ for i in ~/.tmuxinator/*(:t:r); do
   alias ${i}="rbenv_global_exec tmuxinator ${i}"
 done
 
-# Helpful git aliases
+# Use the github enhanced wrapper for git
 alias git='/usr/local/bin/hub'
+compdef hub=git
+
+# Helpful git aliases
 alias gs='git status --short --branch'
 alias gd='git diff'
 alias gdc='git diff --cached'
@@ -77,8 +86,6 @@ function gblame() {
 function gblame_me() {
   gblame | grep "^Graeme Mathieson"
 }
-
-zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
 
 # Shortcuts for various remote Rails consoles
 alias ewgeco-production-console='ssh -t ewgeco@scapa.rubaidh.com "(cd /u/apps/ewgeco/current && script/console production)"'
@@ -108,12 +115,6 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 setopt extendedglob notify append_history inc_append_history share_history hist_ignore_all_dups extended_history
 bindkey -e
-
-# Completion settings
-autoload -Uz compinit
-compinit
-setopt complete_in_word
-zstyle ':completion:*:default' list-colors ''
 
 # shift-tab reverses through completions
 bindkey '^[[Z' reverse-menu-complete
