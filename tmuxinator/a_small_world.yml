@@ -2,16 +2,20 @@ project_name: A Small World
 project_root: ~/Development/ASmallWorld
 tabs:
   - 'vim mid':
-    - cd asw
-    - vim
+    - (cd asw && vim)
   - 'vim api':
-    - cd asw-api
-    - vim
+    - (cd asw-api && vim)
   - 'shell':
     - (cd asw && git smart-pull)
     - (cd asw-api && git smart-pull)
     - cd asw
   - 'server mid':
-    - cd asw
-    - RAILS_ENV=local foreman start
-  - 'server api': 'vagrant ssh -c "cd /vagrant/asw-api && bundle install && foreman start"'
+      layout: main-horizontal
+      panes:
+        - (cd asw && RAILS_ENV=local foreman start)
+        - tail -f asw/log/local.log
+  - 'server api':
+      layout: main-horizontal
+      panes:
+        - 'vagrant ssh -c "cd /vagrant/asw-api && bundle install && foreman start"'
+        - tail -f asw-api/log/development.log

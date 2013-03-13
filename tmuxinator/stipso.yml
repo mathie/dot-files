@@ -1,0 +1,7 @@
+project_name: Stipso
+project_root: ~/Development/Stipso/stipso
+tabs:
+  - editor: vim
+  - shell: git smart-pull
+  - server: foreman start
+  - tests:
