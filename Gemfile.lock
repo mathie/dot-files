@@ -23,7 +23,7 @@ GEM
       yard (~> 0.8.1)
     rake (10.0.3)
     rcodetools (0.8.5.0)
-    slop (3.4.3)
+    slop (3.4.4)
     spring (0.0.7)
     tmuxinator (0.5.0)
     yard (0.8.5.2)
