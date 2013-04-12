@@ -6,6 +6,7 @@ GEM
     coderay (1.0.9)
     colorize (0.5.8)
     configuration (1.3.2)
+    gem-ctags (1.0.5)
     git-smart (0.1.9)
       colorize
     launchy (0.3.7)
@@ -34,6 +35,7 @@ PLATFORMS
 DEPENDENCIES
   CoffeeTags
   awesome_print
+  gem-ctags
   git-smart
   open_gem
   pry

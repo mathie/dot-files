@@ -64,13 +64,20 @@ update_rbenv_main:
 		git clone git://github.com/sstephenson/rbenv.git ~/.rbenv; \
 	fi
 
-update_rbenv_plugins: update_ruby_build
+update_rbenv_plugins: update_ruby_build update_rbenv_ctags
 
 update_ruby_build:
 	if [ -d ~/.rbenv/plugins/ruby-build ]; then \
 		(cd ~/.rbenv/plugins/ruby-build; git smart-pull); \
 	else \
 		git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build; \
+	fi
+
+update_rbenv_ctags:
+	if [ -d ~/.rbenv/plugins/rbenv-ctags ]; then \
+		(cd ~/.rbenv/plugins/rbenv-ctags; git smart-pull); \
+	else \
+		git clone git://github.com/tpope/rbenv-ctags.git ~/.rbenv/plugins/rbenv-ctags; \
 	fi
 
 update_bundler:
