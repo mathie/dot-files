@@ -3,4 +3,4 @@ project_root: ~/Development/BidForWine/bidforwine
 tabs:
   - editor: vim
   - shell: git smart-pull
-  - server: bundle exec foreman start
+  - server: foreman start

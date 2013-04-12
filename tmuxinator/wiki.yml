@@ -1,6 +1,0 @@
-project_name: Personal Wiki
-project_root: ~/Development/mathie_wiki
-tabs:
-  - editor: vim
-  - shell: git smart-pull
-  - server: bundle exec foreman start

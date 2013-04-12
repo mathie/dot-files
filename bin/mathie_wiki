@@ -1,7 +1,0 @@
-#!/usr/bin/env zsh
-
-eval "$(rbenv init -)"
-rbenv shell $(rbenv global)
-
-cd ~/Development/mathie_wiki
-bundle exec foreman start
