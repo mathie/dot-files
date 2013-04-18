@@ -18,7 +18,7 @@ gem 'pry-doc'
 
 # Open up a gem in vim, for the days when I'm not in a bundler environment and
 # can't rely on `bundle open` to do the same thing.
-gem 'open_gem'
+gem 'gem-browse'
 
 # Primarily for xmpfilter, which I'm promising myself I'll use now that it
 # bugged me so much I went looking for it...

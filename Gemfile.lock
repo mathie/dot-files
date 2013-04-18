@@ -5,16 +5,11 @@ GEM
     awesome_print (1.1.0)
     coderay (1.0.9)
     colorize (0.5.8)
-    configuration (1.3.2)
+    gem-browse (1.0.0)
     gem-ctags (1.0.5)
     git-smart (0.1.9)
       colorize
-    launchy (0.3.7)
-      configuration (>= 0.0.5)
-      rake (>= 0.8.1)
     method_source (0.8.1)
-    open_gem (1.4.2)
-      launchy (~> 0.3.5)
     pry (0.9.12)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -22,12 +17,11 @@ GEM
     pry-doc (0.4.5)
       pry (>= 0.9)
       yard (>= 0.8)
-    rake (10.0.4)
     rcodetools (0.8.5.0)
     slop (3.4.4)
     spring (0.0.8)
     tmuxinator (0.5.0)
-    yard (0.8.5.2)
+    yard (0.8.6)
 
 PLATFORMS
   ruby
@@ -35,9 +29,9 @@ PLATFORMS
 DEPENDENCIES
   CoffeeTags
   awesome_print
+  gem-browse
   gem-ctags
   git-smart
-  open_gem
   pry
   pry-doc
   rcodetools
