@@ -1,14 +1,13 @@
+# vim: ft=ruby
+
 Pry.config.editor = proc { |file, line| "vim +#{line} #{file}" }
+Pry.config.prompt_name = File.basename(Dir.pwd)
 
-Pry.prompt = [
+Pry.prompt = [ 0, 1 ].map do |i|
   proc { |target_self, nest_level, pry|
-    "(#{RUBY_ENGINE}-#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}) [#{pry.input_array.size}] pry(#{Pry.view_clip(target_self)})#{":#{nest_level}" unless nest_level.zero?}> "
-  },
-
-  proc { |target_self, nest_level, pry|
-    "(#{RUBY_ENGINE}-#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}) [#{pry.input_array.size}] pry(#{Pry.view_clip(target_self)})#{":#{nest_level}" unless nest_level.zero?}* "
+    "(#{RUBY_ENGINE}-#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}) #{Pry::DEFAULT_PROMPT[i].call(target_self, nest_level, pry)}"
   }
-]
+end
 
 begin
   require 'awesome_print'
