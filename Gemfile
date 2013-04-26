@@ -15,6 +15,7 @@ gem 'CoffeeTags'
 gem 'awesome_print'
 gem 'pry'
 gem 'pry-doc'
+gem 'jist' # For gist support in pry.
 
 # Open up a gem in vim, for the days when I'm not in a bundler environment and
 # can't rely on `bundle open` to do the same thing.
