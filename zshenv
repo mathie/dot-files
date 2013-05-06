@@ -14,3 +14,6 @@ export EDITOR=${HOME}/bin/vim
 export CLICOLOR=true
 
 export SBT_OPTS='-XX:MaxPermSize=256M'
+
+# Tell Vagrant to use VMWare Fusion by default
+export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
