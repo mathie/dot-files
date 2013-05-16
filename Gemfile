@@ -27,3 +27,6 @@ gem 'rcodetools'
 
 # Spring for faster app launch time
 gem 'spring'
+
+# Assistance for iOS development
+gem 'nomad-cli'
