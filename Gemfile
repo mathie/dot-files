@@ -28,5 +28,8 @@ gem 'rcodetools'
 # Spring for faster app launch time
 gem 'spring'
 
+# App server management I use on almost every project
+gem 'foreman'
+
 # Assistance for iOS development
 gem 'nomad-cli'
