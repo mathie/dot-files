@@ -17,3 +17,7 @@ export SBT_OPTS='-XX:MaxPermSize=256M'
 
 # Tell Vagrant to use VMWare Fusion by default
 export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
+
+# Defaults for Go
+export GOROOT='/usr/local/Library/LinkedKegs/go'
+export GOPATH="${HOME}/Development/Go"
