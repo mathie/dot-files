@@ -1,6 +1,8 @@
 default: install
 
-DOT_FILES = MacOSX gemrc git_template gitconfig gitignore_global tmux.conf zshenv zshrc zsh_functions editrc pryrc tmuxinator ackrc my.cnf bashrc bash_profile sleepwatcher offlineimaprc
+DOT_FILES = MacOSX gemrc git_template gitconfig gitignore_global tmux.conf \
+						zshenv zshrc zsh_functions editrc pryrc tmuxinator ackrc my.cnf \
+						bashrc bash_profile sleepwatcher offlineimaprc guard.rb
 HOMEBREW_CONFIG_FILES = etc/my.cnf
 BIN_DIR = bin
 
