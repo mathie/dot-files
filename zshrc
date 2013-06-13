@@ -87,9 +87,6 @@ function gblame_me() {
   gblame | grep "^Graeme Mathieson"
 }
 
-# Shortcuts for various remote Rails consoles
-alias ewgeco-production-console='ssh -t ewgeco@scapa.rubaidh.com "(cd /u/apps/ewgeco/current && script/console production)"'
-
 # Force the terminal to be screen rather than screen-256color when sshing into
 # something else.
 if [ $TERM = 'screen-256color' ]; then
