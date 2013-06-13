@@ -143,3 +143,28 @@ function ec2-set-role() {
   fi
 }
 ec2-set-role rubaidh
+
+# Shortcut for VMWare command line tools
+alias vmrun="/Applications/VMware\ Fusion.app/Contents/Library/vmrun"
+alias vmware-vdiskmanager="/Applications/VMware\ Fusion.app/Contents/Library/vmware-vdiskmanager"
+function vm() {
+  local command="${1}"
+  local vm_name="${2}"
+  local base_path="/Users/mathie/Documents/Virtual Machines.localized"
+  local vmx_file="${base_path}/${vm_name}.vmwarevm/${vm_name}.vmx"
+
+  if [ "${command}" = "list" ]; then
+    vmrun list | sed -E -e "s#${base_path}/[^/]+/(.*).vmx\$#\1#"
+  elif [ "${command}" = "available" ]; then
+    ls "${base_path}" |sed -e 's/.vmwarevm\/$//'
+  elif [ "${command}" = "start" ]; then
+    vmrun start "${vmx_file}" nogui
+  elif [ "${command}" = "stop" ]; then
+    vmrun stop "${vmx_file}" hard
+  elif [ "${command}" = "restart" ]; then
+    vmrun reset "${vmx_file}" hard
+  else
+    echo "Unknown command: ${command}."
+    return 1
+  fi
+}
