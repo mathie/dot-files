@@ -32,4 +32,5 @@ gem 'spring'
 gem 'foreman'
 
 # Assistance for iOS development
+gem 'cocoapods'
 gem 'nomad-cli'
