@@ -41,7 +41,7 @@ install_vim_config: ~/.vim ~/.vimrc
 ~/.vimrc:
 	ln -snf ~/.vim/vimrc ~/.vimrc
 
-update: update_dotfiles update_vim update_rbenv update_homebrew update_bundler
+update: update_dotfiles update_vim update_rbenv update_bundler update_homebrew
 
 update_dotfiles:
 	cd ${HOME}/Development/Personal/dot-files && \
