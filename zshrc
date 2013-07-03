@@ -102,6 +102,7 @@ zstyle ':vcs_info:*' unstagedstr '%F{11}●%f'
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' formats ' %F{blue}%b%f@%F{yellow}%8<<%i%f %c%u'
+zstyle ':vcs_info:*' actionformats ' %F{blue}%b|%a%f@%F{yellow}%8<<%i%f %c%u'
 precmd () { vcs_info }
 export PROMPT=$'%{\e[0;90m%}%n@%m %*%{\e[0m%}
 %{\e[0;%(?.32.31)m%}>%{\e[0m%} '
