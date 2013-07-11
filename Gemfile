@@ -31,6 +31,9 @@ gem 'spring'
 # App server management I use on almost every project
 gem 'foreman'
 
+# Used for deployment on some projects
+gem 'capistrano'
+
 # Assistance for iOS development
 gem 'cocoapods'
 gem 'nomad-cli'
