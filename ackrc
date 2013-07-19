@@ -1,5 +1,17 @@
 --smart-case
 --sort-files
 --pager='less'
---type-set=coffeescript=.coffee
---type-set=scss=.scss
+
+# Add some additional types
+--type-add=coffeescript:ext:coffee
+--type-add=scss:ext:scss
+--type-add=puppet:ext:pp
+
+# And add some additional filenames to existing types.
+--type-add=ruby:is:Vagrantfile
+--type-add=ruby:is:Gemfile
+--type-add=ruby:is:Capfile
+
+# Ignore common directories in Rails apps that I'd typically want to ignore.
+--ignore-dir=is:vendor
+--ignore-dir=is:log
