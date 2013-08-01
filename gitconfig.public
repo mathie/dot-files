@@ -13,3 +13,5 @@
 	default = upstream
 [credential]
 	helper = osxkeychain
+[diff]
+	algorithm = histogram
