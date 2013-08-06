@@ -1,15 +1,8 @@
-Host *
-  # Multiplex several connections to the same host over the same channel.
-  ControlMaster auto
-  ControlPersist yes
-  ControlPath ~/.ssh/control/%r@%h:%p.sock
+# Host-specific rules
+Host puppet.itison.com
+  HostName 31.222.162.14
 
-  # Do protocol-level keepalives, in the hopes of foiling the Cisco ASA that
-  # seems determined to time out my sessions. 5 second pings, 3 of 'em,
-  # connections will time out 15 seconds after the remote host is unreachable.
-  ServerAliveInterval 5
-  ServerAliveCountMax 3
-
+# General rules for particular domains
 Host *.bidforwine.co.uk
   ForwardAgent yes
   Port 2201
@@ -26,3 +19,16 @@ Host *.rubaidh.net
 Host *.itison.com
   ForwardAgent yes
   Port 2712
+
+# Global defaults
+Host *
+  # Multiplex several connections to the same host over the same channel.
+  ControlMaster auto
+  ControlPersist 600
+  ControlPath ~/.ssh/control/%r@%h:%p.sock
+
+  # Do protocol-level keepalives, in the hopes of foiling the Cisco ASA that
+  # seems determined to time out my sessions. 5 second pings, 3 of 'em,
+  # connections will time out 15 seconds after the remote host is unreachable.
+  ServerAliveInterval 5
+  ServerAliveCountMax 3
