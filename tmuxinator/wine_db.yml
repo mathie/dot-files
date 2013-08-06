@@ -1,7 +1,0 @@
-project_name: BfW Wine DB
-project_root: ~/Development/BidForWine/wine_db
-tabs:
-  - editor: vim
-  - shell: git smart-pull
-  - server: foreman start
-  - tests: bundle exec guard start
