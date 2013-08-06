@@ -1,6 +1,6 @@
 project_name: BfW Live Auction
 project_root: ~/Development/BidForWine/live_auction
-tabs:
+windows:
   - editor: vim
   - shell: git smart-pull
   - server: foreman start

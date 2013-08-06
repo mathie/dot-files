@@ -1,6 +1,6 @@
 project_name: Rubaidh Puppet
 project_root: ~/Development/Rubaidh/puppet
-tabs:
+windows:
   - vim: vim
   - vms:
       layout: even-horizontal

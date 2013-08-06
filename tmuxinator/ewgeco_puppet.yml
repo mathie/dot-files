@@ -1,6 +1,6 @@
 project_name: Ewgeco Puppet
 project_root: ~/Development/Ewgeco/puppet
-tabs:
+windows:
   - vim: vim
   - vms:
       layout: even-horizontal

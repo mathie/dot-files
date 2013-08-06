@@ -1,6 +1,6 @@
 project_name: MAF Dashboard
 project_root: ~/Development/MyAccountantFriend/maf-dashboard
-tabs:
+windows:
   - editor: vim
   - shell: git smart-pull
   - server: foreman start
