@@ -37,3 +37,6 @@ gem 'capistrano'
 # Assistance for iOS development
 gem 'cocoapods'
 gem 'nomad-cli'
+
+# Manage host aliases and unregistered hostnames.
+gem 'ghost', '>= 1.0.0.pre2'
