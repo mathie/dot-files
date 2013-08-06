@@ -1,0 +1,5 @@
+for sock_path in ~/.ssh/control/*.sock; do
+  host=$(basename ${sock_path/\.sock/})
+  host_status=$(ssh -O check -S ${sock_path} ${host} 2>&1)
+  echo "${host}:\n\t${host_status}"
+done

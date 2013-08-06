@@ -94,6 +94,9 @@ if [ $TERM = 'screen-256color' ]; then
   alias vagrant='TERM="screen" vagrant'
 fi
 
+# Manage SSH control masters
+autoload -U ssh_control_status ssh_control_exit_masters
+
 # Nice prompt
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git hg svn
