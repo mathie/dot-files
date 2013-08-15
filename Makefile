@@ -2,7 +2,8 @@ default: install
 
 DOT_FILES = MacOSX git_template gitconfig gitignore_global tmux.conf \
 						zshenv zshrc zsh_functions editrc pryrc tmuxinator ackrc my.cnf \
-						bashrc bash_profile sleepwatcher offlineimaprc guard.rb railsrc
+						bashrc bash_profile sleepwatcher offlineimaprc guard.rb railsrc \
+						irbrc
 HOMEBREW_CONFIG_FILES = etc/my.cnf
 BIN_DIR = bin
 
