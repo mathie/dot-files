@@ -117,7 +117,23 @@ zstyle ':vcs_info:*' actionformats ' %F{blue}%b|%a%f@%F{yellow}%8<<%i%f %c%u'
 
 precmd () {
   vcs_info
+  title 'zsh'
   pane_title "%~"
+}
+
+preexec () {
+  local cmd=${1[(wr)^(*=*|sudo|bundle|exec|be|-*)]}
+  local target=${1[(wR)^(*=*|-*)]}
+
+  title "${cmd}"
+
+  if [ ! -z "${target}" -a "${target}" != "${cmd}" ]; then
+    if [ -e "${target}" ]; then
+      pane_title ${target}(:a)
+    else
+      pane_title "${target}"
+    fi
+  fi
 }
 
 export PROMPT=$'%{\e[0;90m%}%n@%m %*%{\e[0m%}
