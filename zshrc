@@ -97,6 +97,14 @@ fi
 # Manage SSH control masters
 autoload -U ssh_control_status ssh_control_exit_masters
 
+title() {
+  print -Pn "\ek$1\e\\"
+}
+
+pane_title() {
+  print -Pn "\e]2;$1\e\\"
+}
+
 # Nice prompt
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git hg svn
@@ -106,7 +114,12 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' formats ' %F{blue}%b%f@%F{yellow}%8<<%i%f %c%u'
 zstyle ':vcs_info:*' actionformats ' %F{blue}%b|%a%f@%F{yellow}%8<<%i%f %c%u'
-precmd () { vcs_info }
+
+precmd () {
+  vcs_info
+  pane_title "%~"
+}
+
 export PROMPT=$'%{\e[0;90m%}%n@%m %*%{\e[0m%}
 %{\e[0;%(?.32.31)m%}>%{\e[0m%} '
 export RPROMPT=$'%{\e[0;90m%}%2~ $(rbenv version-name)${vcs_info_msg_0_}%{\e[0m%}'
