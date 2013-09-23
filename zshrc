@@ -158,10 +158,11 @@ select-word-style bash
 WORDCHARS=${WORDCHARS:s#/##}
 zstyle ':zle:*' word-chars ${WORDCHARS}
 
-# Amazon EC2 configuration
-function ec2-set-role() {
-  export EC2_PRIVATE_KEY="${HOME}/.ec2/${1}-pk.pem"
-  export EC2_CERT="${HOME}/.ec2/${1}-cert.pem"
+# Amazon AWS configuration
+function aws-set-role() {
+  export EC2_PRIVATE_KEY="${HOME}/.aws/${1}-pk.pem"
+  export EC2_CERT="${HOME}/.aws/${1}-cert.pem"
+  export AWS_CONFIG_FILE="${HOME}/.aws/${1}-config"
 
   if [ ! -f ${EC2_PRIVATE_KEY} -o ! -f ${EC2_CERT} ]; then
     echo "Certificate or private key for ${1} missing!"
@@ -169,13 +170,21 @@ function ec2-set-role() {
     return 1
   fi
 
-  if [ -f ${HOME}/.ec2/${1}-default-region ]; then
-    export EC2_URL="https://ec2.$(cat ${HOME}/.ec2/${1}-default-region).amazonaws.com"
+  if [ ! -f ${AWS_CONFIG_FILE} ]; then
+    echo "AWS cli config for ${1} missing!"
+    return 1
+  fi
+
+  if [ -f ${HOME}/.aws/${1}-default-region ]; then
+    export AWS_DEFAULT_REGION="$(cat ${HOME}/.aws/${1}-default-region)"
+    export EC2_URL="https://ec2.${AWS_DEFAULT_REGION}.amazonaws.com"
   else
-    unset EC2_URL
+    unset EC2_URL AWS_DEFAULT_REGION
   fi
 }
-ec2-set-role rubaidh
+aws-set-role rubaidh
+
+[ -f /usr/local/bin/aws_zsh_completer.sh ] && . /usr/local/bin/aws_zsh_completer.sh
 
 # Shortcut for VMWare command line tools
 alias vmrun="/Applications/VMware\ Fusion.app/Contents/Library/vmrun"
