@@ -20,6 +20,7 @@ gitconfig: gitconfig.public gitconfig.private
 install_ssh_config:
 	mkdir -p ~/.ssh/control
 	ln -snf `pwd`/ssh_config ${HOME}/.ssh/config
+	ln -snf `pwd`/authorized_keys ${HOME}/.ssh/authorized_keys
 
 install_homebrew_config_files:
 	for i in $(HOMEBREW_CONFIG_FILES); do \
