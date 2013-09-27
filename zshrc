@@ -210,3 +210,7 @@ function vm() {
     return 1
   fi
 }
+
+# Synergy shortcuts
+alias synergys="reattach-to-user-namespace /Applications/Synergy.app/Contents/MacOS/synergys"
+alias synergyc="reattach-to-user-namespace /Applications/Synergy.app/Contents/MacOS/synergyc"
