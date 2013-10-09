@@ -9,7 +9,7 @@ BIN_DIR = bin
 
 install: install_dotfiles install_homebrew_config_files install_bin_dir install_vim_config
 
-install_dotfiles: $(DOT_FILES) install_ssh_config
+install_dotfiles: $(DOT_FILES) install_ssh_config install_bundler_config
 	for i in $(DOT_FILES); do \
 		ln -snf `pwd`/$$i ${HOME}/.$$i; \
 	done
@@ -18,9 +18,13 @@ gitconfig: gitconfig.public gitconfig.private
 	cat $^ > $@
 
 install_ssh_config:
-	mkdir -p ~/.ssh/control
+	mkdir -p ${HOME}/.ssh/control
 	ln -snf `pwd`/ssh_config ${HOME}/.ssh/config
 	ln -snf `pwd`/authorized_keys ${HOME}/.ssh/authorized_keys
+
+install_bundler_config:
+	mkdir -p ${HOME}/.bundle
+	ln -snf `pwd`/bundler_config ${HOME}/.bundle/config
 
 install_homebrew_config_files:
 	for i in $(HOMEBREW_CONFIG_FILES); do \
