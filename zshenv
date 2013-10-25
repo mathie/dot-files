@@ -5,7 +5,6 @@ export PERL_MM_OPT="INSTALL_BASE=${PERL_LOCAL_LIB_ROOT}";
 export PERL5LIB="${PERL_LOCAL_LIB_ROOT}/lib/perl5/darwin-thread-multi-2level:${PERL_LOCAL_LIB_ROOT}/lib/perl5";
 
 # Defaults for Go
-export GOROOT='/usr/local/Library/LinkedKegs/go'
 export GOPATH="${HOME}/Development/Go"
 
 export PATH="bin:${HOME}/bin:/usr/local/heroku/bin:${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${GOPATH}/bin:${PERL_LOCAL_LIB_ROOT}/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
