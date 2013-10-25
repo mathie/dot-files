@@ -16,3 +16,5 @@
 	helper = osxkeychain
 [diff]
 	algorithm = histogram
+[merge]
+	ff = false
