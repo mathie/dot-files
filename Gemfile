@@ -40,6 +40,3 @@ gem 'nomad-cli'
 
 # Manage host aliases and unregistered hostnames.
 gem 'ghost', '>= 1.0.0.pre2'
-
-# For exposing local services to external webhooks
-gem 'ultrahook'
