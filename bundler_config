@@ -1,4 +1,5 @@
---- 
+---
 BUNDLE_BUILD__CHARLOCK_HOLMES: --with-icu-dir=/usr/local/opt/icu4c
 BUNDLE_BUILD__NOKOGIRI: --with-xml2-include=/usr/local/opt/libxml2/include/libxml2
 BUNDLE_LOCAL__FREE_AGENT: /Users/mathie/Development/BidForWine/free_agent
+BUNDLE_JOBS: '4'
