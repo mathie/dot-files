@@ -17,4 +17,7 @@
 [diff]
 	algorithm = histogram
 [merge]
+	tool = fugitive
 	ff = false
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
