@@ -214,3 +214,8 @@ function vm() {
 # Synergy shortcuts
 alias synergys="reattach-to-user-namespace /Applications/Synergy.app/Contents/MacOS/synergys"
 alias synergyc="reattach-to-user-namespace /Applications/Synergy.app/Contents/MacOS/synergyc"
+
+# Help files
+unalias run-help
+autoload run-help
+export HELPDIR=/usr/local/share/zsh/helpfiles
