@@ -24,3 +24,6 @@ export SBT_OPTS='-XX:MaxPermSize=256M'
 
 # Tell Vagrant to use VMWare Fusion by default
 export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
+
+# Tell docker on my Mac OS X host to use TCP by default
+export DOCKER_HOST="tcp://localhost"
