@@ -61,12 +61,12 @@ compdef hub=git
 
 # Helpful git aliases
 alias gs='git status --short --branch'
-alias gd='git diff'
-alias gdc='git diff --cached'
+alias gd='git diff --color-words'
+alias gdc='gd --cached'
 alias glog='git log --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
 alias gl='glog --graph'
 alias gla='gl --all'
-alias gup='rbenv_global_exec git smart-pull'
+alias gup='gru && git rebase -p'
 alias gc='git commit'
 alias ga='git add --all'
 alias gap='git add --all --patch'
