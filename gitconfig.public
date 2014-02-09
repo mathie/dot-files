@@ -10,6 +10,7 @@
 [alias]
 	unstage = reset HEAD
 	ctags = !.git/hooks/ctags
+	release = "!f() { git tag -a -m $1 $1 && git push origin tag $1; }; f"
 [push]
 	default = upstream
 [credential]
