@@ -1,7 +1,0 @@
-project_name: My Ewgeco
-project_root: ~/Development/Ewgeco/my_ewgeco
-windows:
-  - editor: vim
-  - shell: git smart-pull
-  - server: foreman start
-  - guard: bundle exec guard start

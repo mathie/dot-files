@@ -1,6 +1,0 @@
-project_name: Bid for Wine
-project_root: ~/Development/BidForWine/bidforwine
-windows:
-  - editor: vim
-  - shell: git smart-pull
-  - server: foreman start

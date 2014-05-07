@@ -1,0 +1,7 @@
+project_name: Happy/Sad
+project_root: ~/Development/Personal/happy_sad
+windows:
+  - editor: vim
+  - shell:
+  - server: foreman start
+  - guard: bundle exec guard start
