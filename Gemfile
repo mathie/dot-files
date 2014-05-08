@@ -25,14 +25,10 @@ gem 'gem-browse'
 # bugged me so much I went looking for it...
 gem 'rcodetools'
 
-# Spring for faster app launch time
-gem 'spring'
-
-# App server management I use on almost every project
+# Rails development assistance (deployment, CI, etc).
 gem 'foreman'
-
-# Used for deployment on some projects
 gem 'capistrano'
+gem 'travis'
 
 # Assistance for iOS development
 gem 'cocoapods'
