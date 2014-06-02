@@ -222,3 +222,39 @@ export HELPDIR=/usr/local/share/zsh/helpfiles
 
 # added by travis gem
 [ -f /Users/mathie/.travis/travis.sh ] && source /Users/mathie/.travis/travis.sh
+
+function start() {
+  # start a homebrew daemon that's running with launchd
+  daemon="${1}"
+
+  if [ -z "${daemon}" ]; then
+    echo "Usage ${0} <daemon>"
+    return 1
+  fi
+
+  plist_file="${HOME}/Library/LaunchAgents/homebrew.mxcl.${daemon}.plist"
+  if [ -e "${plist_file}" ]; then
+    launchctl load -w "${plist_file}"
+  else
+    echo "Cannot find plist file for ${daemon}."
+    return 1
+  fi
+}
+
+function stop() {
+  # Stop a homebrew daemon that's running with launchd
+  daemon="${1}"
+
+  if [ -z "${daemon}" ]; then
+    echo "Usage ${0} <daemon>"
+    return 1
+  fi
+
+  plist_file="${HOME}/Library/LaunchAgents/homebrew.mxcl.${daemon}.plist"
+  if [ -e "${plist_file}" ]; then
+    launchctl unload -w "${plist_file}"
+  else
+    echo "Cannot find plist file for ${daemon}."
+    return 1
+  fi
+}
