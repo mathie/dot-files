@@ -258,3 +258,25 @@ function stop() {
     return 1
   fi
 }
+
+function status() {
+  # Check the status of a homebrew daemon that's running under launchd
+  daemon="${1}"
+
+  if [ -z "${daemon}" ]; then
+    for i in ~/Library/LaunchAgents/homebrew.mxcl.*; do status $(basename $i .plist | sed 's/^homebrew\.mxcl\.//'); done
+  else
+    daemonfqdn="homebrew.mxcl.${daemon}"
+    plist_file="${HOME}/Library/LaunchAgents/${daemonfqdn}.plist"
+    if [ -e "${plist_file}" ]; then
+      if launchctl list ${daemonfqdn} > /dev/null 2>&1; then
+        echo "${daemon} is running (PID $(launchctl list ${daemonfqdn} | awk '/"PID"/ { sub(/;/, "", $3); print $3 }'))."
+      else
+        echo "${daemon} is stopped."
+      fi
+    else
+      echo "Cannot find plist file for ${daemon}."
+      return 1
+    fi
+  fi
+}
