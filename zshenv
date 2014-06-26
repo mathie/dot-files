@@ -21,3 +21,6 @@ export CLICOLOR=true
 export JAVA_HOME=$(/usr/libexec/java_home)
 export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
 export SBT_OPTS='-XX:MaxPermSize=256M'
+
+# Docker (via boot2docker)
+export DOCKER_HOST=tcp://192.168.59.103:2375
