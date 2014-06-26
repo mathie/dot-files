@@ -1,13 +1,20 @@
-fpath=(~/.zsh_functions ~/.zsh_functions/Completion $fpath)
+fpath=(~/.zsh_functions /usr/local/share/zsh-completions $fpath)
 
 homebrew=/usr/local
 : ~homebrew
+
+# Access zsh help, as recommended by homebrew
+autoload run-help
+HELPDIR=/usr/local/share/zsh/helpfiles
 
 # Completion settings
 autoload -Uz compinit
 compinit
 setopt complete_in_word
 zstyle ':completion:*:default' list-colors ''
+
+# Load Go completions
+. /usr/local/share/zsh/site-functions/go
 
 eval "$(rbenv init - | grep -v export.PATH)"
 function rbenv_global_exec() {
