@@ -1,4 +1,3 @@
 ---
 BUNDLE_BUILD__CHARLOCK_HOLMES: --with-icu-dir=/usr/local/opt/icu4c
-BUNDLE_BUILD__NOKOGIRI: --use-system-libraries
 BUNDLE_JOBS: '4'
