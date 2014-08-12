@@ -47,7 +47,7 @@ install_vim_config: ~/.vim ~/.vimrc
 ~/.vimrc:
 	ln -snf ~/.vim/vimrc ~/.vimrc
 
-update: update_dotfiles update_vim update_rbenv update_bundler update_homebrew
+update: update_dotfiles update_vim update_rbenv update_bundler update_gems update_npm update_homebrew
 
 update_dotfiles:
 	cd ${HOME}/Development/Personal/dot-files && \
@@ -90,3 +90,9 @@ update_rbenv_ctags:
 
 update_bundler:
 	bundle update
+
+update_gems:
+	[ -x $$(which gem) ] && gem update || true
+
+update_npm:
+	[ -x $$(which npm) ] && npm -g update || true
