@@ -1,4 +1,3 @@
 --database=postgresql
 --skip-keeps
 --skip-test-unit
---template=~/Development/Personal/dot-files/rails_template.rb
