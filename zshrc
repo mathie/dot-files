@@ -28,7 +28,7 @@ setopt autopushd pushdminus pushdsilent pushdtohome pushdignoredups
 cdpath=( ~ ~/Development )
 setopt autocd
 
-alias ls='ls -Fh'
+alias ls='ls -Fhe@cAO'
 alias sudo='sudo -H -p "[%u@%h -> %U] Password:"'
 
 alias vim="${EDITOR}"
