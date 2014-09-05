@@ -1,5 +1,5 @@
-project_name: Happy/Sad
-project_root: ~/Development/Personal/happy_sad
+project_name: Exocortex
+project_root: ~/Development/Personal/exocortex
 windows:
   - editor: vim
   - shell:
