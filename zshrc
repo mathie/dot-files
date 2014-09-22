@@ -25,7 +25,7 @@ alias be='bundle exec'
 setopt prompt_subst
 setopt autopushd pushdminus pushdsilent pushdtohome pushdignoredups
 
-cdpath=( ~ ~/Development )
+cdpath=( ~ ~/Development ${GOPATH}/src/github.com ${GOPATH}/src/code.google.com/p )
 setopt autocd
 
 alias ls='ls -Fhe@cAO'
