@@ -14,7 +14,7 @@ setopt complete_in_word
 zstyle ':completion:*:default' list-colors ''
 
 # Load Go completions
-. /usr/local/share/zsh/site-functions/go
+. /usr/local/share/zsh/site-functions/_go
 
 eval "$(rbenv init - | grep -v export.PATH)"
 function rbenv_global_exec() {
