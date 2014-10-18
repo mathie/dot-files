@@ -1,5 +1,0 @@
-#!/bin/sh
-
-vmname="SmartOS"
-
-VBoxManage controlvm "${vmname}" acpipowerbutton

@@ -16,7 +16,7 @@ zstyle ':completion:*:default' list-colors ''
 # Load Go completions
 . /usr/local/share/zsh/site-functions/_go
 
-eval "$(rbenv init - | grep -v export.PATH)"
+eval "$(rbenv init - zsh | grep -v export.PATH)"
 function rbenv_global_exec() {
   (rbenv shell $(rbenv global); exec $*)
 }
@@ -217,10 +217,6 @@ function vm() {
     return 1
   fi
 }
-
-# Synergy shortcuts
-alias synergys="reattach-to-user-namespace /Applications/Synergy.app/Contents/MacOS/synergys"
-alias synergyc="reattach-to-user-namespace /Applications/Synergy.app/Contents/MacOS/synergyc"
 
 # Help files
 unalias run-help
