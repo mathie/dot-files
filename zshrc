@@ -3,10 +3,6 @@ fpath=(~/.zsh_functions /usr/local/share/zsh-completions $fpath)
 homebrew=/usr/local
 : ~homebrew
 
-# Access zsh help, as recommended by homebrew
-autoload run-help
-HELPDIR=/usr/local/share/zsh/helpfiles
-
 # Completion settings
 autoload -Uz compinit
 compinit
