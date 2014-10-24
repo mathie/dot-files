@@ -1,5 +1,1 @@
-notification :tmux,
-  :display_message => true,
-  :line_separator  => ' | ',
-  :color_location  => 'status-left-fg',
-  :timeout         => 2
+notification :gntp, host: '127.0.0.1'
