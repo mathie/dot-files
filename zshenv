@@ -22,4 +22,4 @@ export CLICOLOR=true
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Docker (via boot2docker)
-export DOCKER_HOST=tcp://192.168.59.103:2375
+export DOCKER_HOST=tcp://127.0.0.1:2375
