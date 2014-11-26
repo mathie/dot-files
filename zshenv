@@ -21,5 +21,5 @@ export CLICOLOR=true
 # Java (et al) defaults
 export JAVA_HOME=$(/usr/libexec/java_home)
 
-# Docker (via boot2docker)
-export DOCKER_HOST=tcp://127.0.0.1:2375
+# Docker (via a Vagrant VM)
+export DOCKER_HOST="tcp://docker.local:2375"
