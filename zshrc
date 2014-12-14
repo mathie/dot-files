@@ -9,9 +9,6 @@ compinit
 setopt complete_in_word
 zstyle ':completion:*:default' list-colors ''
 
-# Load Go completions
-. /usr/local/share/zsh/site-functions/_go
-
 eval "$(rbenv init - zsh | grep -v export.PATH)"
 function rbenv_global_exec() {
   (rbenv shell $(rbenv global); exec $*)
