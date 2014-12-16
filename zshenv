@@ -18,8 +18,5 @@ export EDITOR='vim'
 
 export CLICOLOR=true
 
-# Java (et al) defaults
-export JAVA_HOME=$(/usr/libexec/java_home)
-
 # Docker (via a Vagrant VM)
 export DOCKER_HOST="tcp://docker.local:2375"
