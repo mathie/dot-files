@@ -183,11 +183,6 @@ function vm() {
   fi
 }
 
-# Help files
-unalias run-help
-autoload run-help
-export HELPDIR=/usr/local/share/zsh/helpfiles
-
 # added by travis gem
 [ -f /Users/mathie/.travis/travis.sh ] && source /Users/mathie/.travis/travis.sh
 
