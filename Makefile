@@ -1,13 +1,12 @@
 default: install
 
 DOT_FILES = MacOSX git_template gitconfig gitignore_global tmux.conf \
-						zshenv zshrc zsh_functions editrc pryrc tmuxinator ackrc my.cnf \
+						zshenv zshrc zsh_functions editrc pryrc tmuxinator ackrc \
 						bashrc bash_profile sleepwatcher offlineimaprc guard.rb railsrc \
 						irbrc synergy.conf htoprc jrnl_config
-HOMEBREW_CONFIG_FILES = etc/my.cnf
 BIN_DIR = bin
 
-install: install_dotfiles install_homebrew_config_files install_bin_dir install_vim_config
+install: install_dotfiles install_bin_dir install_vim_config
 
 install_dotfiles: $(DOT_FILES) install_ssh_config install_bundler_config
 	for i in $(DOT_FILES); do \
@@ -26,11 +25,6 @@ install_bundler_config:
 	mkdir -p ${HOME}/.bundle
 	ln -snf `pwd`/bundler_config ${HOME}/.bundle/config
 
-install_homebrew_config_files:
-	for i in $(HOMEBREW_CONFIG_FILES); do \
-		ln -snf `pwd`/homebrew/$$i /usr/local/$$i; \
-	done
-
 install_bin_dir:
 	mkdir -p ~/bin
 	SetFile -a V ~/bin
@@ -47,7 +41,7 @@ install_vim_config: ~/.vim ~/.vimrc
 ~/.vimrc:
 	ln -snf ~/.vim/vimrc ~/.vimrc
 
-update: update_dotfiles update_vim update_bundler update_gems update_npm update_homebrew
+update: update_dotfiles update_vim update_bundler update_gems update_npm
 
 update_dotfiles:
 	cd ${HOME}/Development/Personal/dot-files && \
@@ -58,10 +52,6 @@ update_vim:
 	cd ${HOME}/.vim && \
 		git remote update && git rebase -p && \
 		git submodule update --init
-
-update_homebrew:
-	brew update
-	brew outdated
 
 update_bundler:
 	bundle update
