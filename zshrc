@@ -21,7 +21,7 @@ setopt autopushd pushdminus pushdsilent pushdtohome pushdignoredups
 cdpath=( ~ ~/Development ${GOPATH}/src/github.com ${GOPATH}/src/code.google.com/p )
 setopt autocd
 
-alias ls='ls -Fhe@cAO'
+alias ls='ls -FhcA'
 alias sudo='sudo -H -p "[%u@%h -> %U] Password:"'
 
 alias vim="${EDITOR}"
