@@ -1,9 +1,9 @@
 default: install
 
-DOT_FILES = MacOSX git_template gitconfig gitignore_global tmux.conf \
+DOT_FILES = git_template gitconfig gitignore_global tmux.conf \
 						zshenv zshrc zsh_functions editrc pryrc tmuxinator ackrc \
-						bashrc bash_profile sleepwatcher offlineimaprc guard.rb railsrc \
-						irbrc synergy.conf htoprc jrnl_config
+						bashrc bash_profile guard.rb railsrc \
+						irbrc htoprc
 BIN_DIR = bin
 
 install: install_dotfiles install_bin_dir install_vim_config
@@ -27,7 +27,6 @@ install_bundler_config:
 
 install_bin_dir:
 	mkdir -p ~/bin
-	SetFile -a V ~/bin
 	for i in $(BIN_DIR)/*; do \
 		ln -snf `pwd`/$$i ${HOME}/$$i; \
 	done
