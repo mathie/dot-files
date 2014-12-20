@@ -1,24 +1,12 @@
-# Host-specific rules
-Host puppet.itison.com
-  HostName 31.222.162.14
-
-# General rules for particular domains
-Host *.bidforwine.co.uk
-  ForwardAgent yes
-  Port 2201
-
 Host *.local
   ForwardAgent yes
 
 Host *.rubaidh.com
   ForwardAgent yes
 
-Host *.rubaidh.net
+Host *.sumdog.com
+  User graeme
   ForwardAgent yes
-
-Host *.itison.com
-  ForwardAgent yes
-  Port 2712
 
 # Global defaults
 Host *
