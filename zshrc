@@ -76,6 +76,7 @@ alias gco='git checkout'
 alias gcob='git checkout -b'
 alias gb='git branch'
 alias gba='git branch -a'
+alias gf='git fetch'
 
 function gblame() {
   for branch in $(git branch -r); do
