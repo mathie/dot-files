@@ -4,10 +4,9 @@ DOT_FILES = MacOSX git_template gitconfig gitignore_global tmux.conf \
 						zshenv zshrc zsh_functions editrc pryrc tmuxinator ackrc my.cnf \
 						bashrc bash_profile sleepwatcher offlineimaprc guard.rb railsrc \
 						irbrc synergy.conf htoprc jrnl_config
-HOMEBREW_CONFIG_FILES = etc/my.cnf
 BIN_DIR = bin
 
-install: install_dotfiles install_homebrew_config_files install_bin_dir install_vim_config
+install: install_dotfiles install_bin_dir install_vim_config
 
 install_dotfiles: $(DOT_FILES) install_ssh_config install_bundler_config
 	for i in $(DOT_FILES); do \
@@ -25,11 +24,6 @@ install_ssh_config:
 install_bundler_config:
 	mkdir -p ${HOME}/.bundle
 	ln -snf `pwd`/bundler_config ${HOME}/.bundle/config
-
-install_homebrew_config_files:
-	for i in $(HOMEBREW_CONFIG_FILES); do \
-		ln -snf `pwd`/homebrew/$$i /usr/local/$$i; \
-	done
 
 install_bin_dir:
 	mkdir -p ~/bin
