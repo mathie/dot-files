@@ -6,7 +6,7 @@ DOT_FILES = MacOSX git_template gitconfig gitignore_global tmux.conf \
 						irbrc synergy.conf htoprc jrnl_config
 BIN_DIR = bin
 
-install: install_dotfiles install_bin_dir install_vim_config
+install: install_dotfiles install_keybindings install_bin_dir install_vim_config
 
 install_dotfiles: $(DOT_FILES) install_ssh_config install_bundler_config
 	for i in $(DOT_FILES); do \
@@ -24,6 +24,10 @@ install_ssh_config:
 install_bundler_config:
 	mkdir -p ${HOME}/.bundle
 	ln -snf `pwd`/bundler_config ${HOME}/.bundle/config
+
+install_keybindings:
+	mkdir -p ${HOME}/Library/KeyBindings
+	ln -snf `pwd`/DefaultKeyBinding.dict ${HOME}/Library/KeyBindings/DefaultKeyBinding.dict
 
 install_bin_dir:
 	mkdir -p ~/bin
