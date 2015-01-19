@@ -36,3 +36,6 @@ gem 'nomad-cli'
 
 # Manage host aliases and unregistered hostnames.
 gem 'ghost', '>= 1.0.0.pre2'
+
+# Markdown previewer that looks identical to GitHub's output.
+gem 'octodown'
