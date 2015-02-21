@@ -13,8 +13,8 @@ export PAGER='less'
 export LESS='-iMRsS~'
 export NODE_PATH="/usr/local/lib/node_modules"
 
-# Use TextMate as the default editor.
-export EDITOR='/usr/local/bin/mate --wait'
+# Use Atom as the default editor.
+export EDITOR='/usr/local/bin/atom --wait'
 
 export CLICOLOR=true
 
