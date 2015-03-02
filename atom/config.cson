@@ -7,8 +7,8 @@
     softWrap: true
   core:
     themes: [
-      "atom-dark-ui"
-      "atom-dark-syntax"
+      "one-light-ui"
+      "one-light-syntax"
     ]
     projectHome: "/Users/mathie/Development"
   "exception-reporting":
