@@ -7,7 +7,7 @@
     softWrap: true
   core:
     themes: [
-      "one-light-ui"
+      "unity-ui"
       "one-light-syntax"
     ]
     projectHome: "/Users/mathie/Development"
