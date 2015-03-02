@@ -1,7 +1,12 @@
-'editor':
-  'fontSize': 16
-'core':
-  'themes': [
-    'atom-dark-ui'
-    'atom-dark-syntax'
-  ]
+"*":
+  editor:
+    fontSize: 16
+  core:
+    themes: [
+      "atom-dark-ui"
+      "atom-dark-syntax"
+    ]
+  "exception-reporting":
+    userId: "ee37970f-43fb-0169-63d2-509f39c89a1e"
+  welcome:
+    showOnStartup: false
