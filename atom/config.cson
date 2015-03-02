@@ -1,0 +1,17 @@
+"*":
+  editor:
+    invisibles: {}
+    fontFamily: "Source Code Pro"
+    fontSize: 12
+    showIndentGuide: true
+    softWrap: true
+  core:
+    themes: [
+      "unity-ui"
+      "one-light-syntax"
+    ]
+    projectHome: "/Users/mathie/Development"
+  "exception-reporting":
+    userId: "ee37970f-43fb-0169-63d2-509f39c89a1e"
+  welcome:
+    showOnStartup: false
