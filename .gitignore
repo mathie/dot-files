@@ -2,3 +2,4 @@ gitconfig
 gitconfig.private
 sleepwatcher/activity.log
 Gemfile.lock
+npm-debug.log
