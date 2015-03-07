@@ -14,7 +14,7 @@ export LESS='-iMRsS~'
 export NODE_PATH="/usr/local/lib/node_modules"
 
 # Use Atom as the default editor.
-export EDITOR='/usr/local/bin/atom --wait'
+export EDITOR="${HOME}/bin/vim"
 
 export CLICOLOR=true
 

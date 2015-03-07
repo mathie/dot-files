@@ -3,7 +3,3 @@ gitconfig.private
 sleepwatcher/activity.log
 Gemfile.lock
 npm-debug.log
-
-# Ignore atom packages
-/atom/.apm/*
-/atom/packages/*
