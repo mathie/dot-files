@@ -77,6 +77,7 @@ alias gcob='git checkout -b'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gf='git fetch'
+alias gpr='git pull-request'
 
 function gblame() {
   for branch in $(git branch -r); do
