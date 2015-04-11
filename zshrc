@@ -138,9 +138,10 @@ preexec () {
   fi
 }
 
-export PROMPT=$'%{\e[0;34m%}%n@%m %{\e[0;33m%}%*%{\e[0m%}
-%{\e[0;%(?.32.31)m%}>%{\e[0m%} '
-export RPROMPT=$'%{\e[0;33m%}%2~ %{\e[0;32m%}$(rbenv version-name)${vcs_info_msg_0_}%{\e[0m%}'
+. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+# export PROMPT=$'%{\e[0;34m%}%n@%m %{\e[0;33m%}%*%{\e[0m%}
+# %{\e[0;%(?.32.31)m%}>%{\e[0m%} '
+# export RPROMPT=$'%{\e[0;33m%}%2~ %{\e[0;32m%}$(rbenv version-name)${vcs_info_msg_0_}%{\e[0m%}'
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
