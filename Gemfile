@@ -33,6 +33,7 @@ gem 'travis'
 # Assistance for iOS development
 gem 'cocoapods'
 gem 'nomad-cli'
+gem 'fastlane'
 
 # Manage host aliases and unregistered hostnames.
 gem 'ghost', '>= 1.0.0.pre2'
