@@ -11,7 +11,6 @@ export PATH="bin:${HOME}/bin:/usr/local/heroku/bin:${HOME}/.rbenv/bin:${HOME}/.r
 
 export PAGER='less'
 export LESS='-iMRsS~'
-export NODE_PATH="/usr/local/lib/node_modules"
 
 # Use Vim as the default editor.
 export EDITOR="vim"
