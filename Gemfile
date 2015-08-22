@@ -2,9 +2,6 @@ source 'https://rubygems.org/'
 
 gem 'gem-ctags'
 
-# tmux bits I live on
-gem 'tmuxinator'
-
 # Smart pull/rebase/merge
 gem 'git-smart'
 
