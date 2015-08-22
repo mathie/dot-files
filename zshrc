@@ -48,13 +48,6 @@ function tmux-new-session() {
   fi
 }
 
-# tmux helper
-alias mux='tmuxinator'
-compctl -g '~/.tmuxinator/*(:t:r)' tmuxinator
-for i in ~/.tmuxinator/*(:t:r); do
-  alias ${i}="rbenv_global_exec tmuxinator ${i}"
-done
-
 # Use the github enhanced wrapper for git
 alias git='/usr/local/bin/hub'
 compdef hub=git
