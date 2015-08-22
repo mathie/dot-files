@@ -4,10 +4,6 @@ Host *.local
 Host *.rubaidh.com
   ForwardAgent yes
 
-Host *.doorguardhq.com
-  User deploy
-  Port 32323
-
 # Global defaults
 Host *
   # Multiplex several connections to the same host over the same channel.
