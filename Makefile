@@ -1,7 +1,7 @@
 default: install
 
 DOT_FILES = MacOSX git_template gitconfig gitignore_global tmux.conf \
-						zshenv zshrc zsh_functions editrc pryrc tmuxinator ackrc my.cnf \
+						zshenv zshrc zsh_functions editrc pryrc ackrc my.cnf \
 						bashrc bash_profile sleepwatcher offlineimaprc guard.rb railsrc \
 						irbrc synergy.conf htoprc ctags jrnl_config
 BIN_DIR = bin
