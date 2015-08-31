@@ -5,6 +5,9 @@ gem 'gem-ctags'
 # Smart pull/rebase/merge
 gem 'git-smart'
 
+# GitHub issue management
+gem 'ghi'
+
 # Used by my vim configuration
 gem 'CoffeeTags'
 
