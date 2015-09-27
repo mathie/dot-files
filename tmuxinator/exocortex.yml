@@ -1,7 +1,0 @@
-project_name: Exocortex
-project_root: ~/Development/Personal/exocortex
-windows:
-  - editor: vim
-  - shell:
-  - server: foreman start
-  - guard: bundle exec guard start
