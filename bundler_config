@@ -1,3 +1,4 @@
 ---
-BUNDLE_BUILD__CHARLOCK_HOLMES: --with-icu-dir=/usr/local/opt/icu4c
+BUNDLE_BUILD__CHARLOCK_HOLMES: "--with-icu-dir=/usr/local/opt/icu4c"
 BUNDLE_JOBS: '4'
+BUNDLE_BUILD__EVENTMACHINE: "--with-cppflags=-I/usr/local/opt/openssl/include"
