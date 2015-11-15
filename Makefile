@@ -20,6 +20,7 @@ install_ssh_config:
 	mkdir -p ${HOME}/.ssh/control
 	ln -snf `pwd`/ssh_config ${HOME}/.ssh/config
 	ln -snf `pwd`/authorized_keys ${HOME}/.ssh/authorized_keys
+	chmod go-rwx `pwd`/ssh_config `pwd`/authorized_keys
 
 install_bundler_config:
 	mkdir -p ${HOME}/.bundle
