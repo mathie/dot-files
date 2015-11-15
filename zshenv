@@ -17,9 +17,3 @@ export NODE_PATH="/usr/local/lib/node_modules"
 export EDITOR="vim"
 
 export CLICOLOR=true
-
-# Java (et al) defaults
-export JAVA_HOME=$(/usr/libexec/java_home)
-
-# Docker (via docker-machine)
-eval "$(docker-machine env dev)"
