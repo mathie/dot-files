@@ -1,6 +1,6 @@
 default: install
 
-DOT_FILES = MacOSX git_template gitconfig gitignore_global tmux.conf \
+DOT_FILES = git_template gitconfig gitignore_global tmux.conf \
 						zshenv zshrc zsh_functions editrc pryrc ackrc my.cnf \
 						bashrc bash_profile sleepwatcher offlineimaprc guard.rb railsrc \
 						irbrc synergy.conf htoprc ctags jrnl_config
