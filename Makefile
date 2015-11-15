@@ -6,7 +6,7 @@ DOT_FILES = MacOSX git_template gitconfig gitignore_global tmux.conf \
 						irbrc synergy.conf htoprc ctags jrnl_config
 BIN_DIR = bin
 
-install: install_dotfiles install_keybindings install_bin_dir install_vim_config
+install: install_dotfiles install_bin_dir install_vim_config
 
 install_dotfiles: $(DOT_FILES) install_ssh_config install_bundler_config
 	for i in $(DOT_FILES); do \
@@ -25,13 +25,8 @@ install_bundler_config:
 	mkdir -p ${HOME}/.bundle
 	ln -snf `pwd`/bundler_config ${HOME}/.bundle/config
 
-install_keybindings:
-	mkdir -p ${HOME}/Library/KeyBindings
-	ln -snf `pwd`/DefaultKeyBinding.dict ${HOME}/Library/KeyBindings/DefaultKeyBinding.dict
-
 install_bin_dir:
 	mkdir -p ~/bin
-	SetFile -a V ~/bin
 	for i in $(BIN_DIR)/*; do \
 		ln -snf `pwd`/$$i ${HOME}/$$i; \
 	done
@@ -45,10 +40,9 @@ install_vim_config: ~/.vim ~/.vimrc
 ~/.vimrc:
 	ln -snf ~/.vim/vimrc ~/.vimrc
 
-update: update_dotfiles update_vim update_bundler update_gems update_npm update_homebrew
+update: update_dotfiles update_vim update_bundler update_gems update_npm
 
 update_dotfiles:
-	cd ${HOME}/Development/Personal/dot-files && \
 		git remote update && git rebase -p && \
 		make
 
@@ -56,10 +50,6 @@ update_vim:
 	cd ${HOME}/.vim && \
 		git remote update && git rebase -p && \
 		git submodule update --init
-
-update_homebrew:
-	brew update
-	brew outdated
 
 update_bundler:
 	bundle update
