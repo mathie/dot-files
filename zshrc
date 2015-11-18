@@ -18,16 +18,11 @@ setopt autopushd pushdminus pushdsilent pushdtohome pushdignoredups
 cdpath=( ~ ~/Development ${GOPATH}/src/github.com ${GOPATH}/src/code.google.com/p )
 setopt autocd
 
-alias ls='ls -Fhe@cAO'
 alias sudo='sudo -H -p "[%u@%h -> %U] Password:"'
 
 alias vim="${EDITOR}"
 alias :e="${EDITOR}"
 alias :r="cat"
-
-# Helpful tmux aliases for interacting with the system clipboard.
-alias tmux-buffer-to-clipboard='tmux save-buffer -|pbcopy'
-alias tmux-buffer-from-clipboard='tmux set-buffer "$(pbpaste)"'
 
 function tmux-new-session() {
   local session_name=${1}
@@ -150,35 +145,7 @@ select-word-style bash
 WORDCHARS=${WORDCHARS:s#/##}
 zstyle ':zle:*' word-chars ${WORDCHARS}
 
-# Shortcut for VMWare command line tools
-alias vmrun="/Applications/VMware\ Fusion.app/Contents/Library/vmrun"
-alias vmware-vdiskmanager="/Applications/VMware\ Fusion.app/Contents/Library/vmware-vdiskmanager"
-function vm() {
-  local command="${1}"
-  local vm_name="${2}"
-  local base_path="/Users/mathie/Documents/Virtual Machines.localized"
-  local vmx_file="${base_path}/${vm_name}.vmwarevm/${vm_name}.vmx"
-
-  if [ "${command}" = "list" ]; then
-    vmrun list | sed -E -e "s#${base_path}/[^/]+/(.*).vmx\$#\1#"
-  elif [ "${command}" = "available" ]; then
-    ls "${base_path}" |sed -e 's/.vmwarevm\/$//'
-  elif [ "${command}" = "start" ]; then
-    vmrun start "${vmx_file}" nogui
-  elif [ "${command}" = "stop" ]; then
-    vmrun stop "${vmx_file}" hard
-  elif [ "${command}" = "restart" ]; then
-    vmrun reset "${vmx_file}" hard
-  else
-    echo "Unknown command: ${command}."
-    return 1
-  fi
-}
-
 # Help files
 unalias run-help
 autoload run-help
 export HELPDIR=/usr/local/share/zsh/helpfiles
-
-# added by travis gem
-[ -f /Users/mathie/.travis/travis.sh ] && source /Users/mathie/.travis/travis.sh
