@@ -3,6 +3,17 @@ fpath=(~/.zsh_functions /usr/local/share/zsh-completions $fpath)
 homebrew=/usr/local
 : ~homebrew
 
+# Point to a consistent agent socket location
+SSH_SHARED_AUTH_SOCK=/home/mathie/.ssh/agent.sock
+if [ -S "${SSH_AUTH_SOCK}" ]; then
+  if [ "${SSH_AUTH_SOCK}" != "${SSH_SHARED_AUTH_SOCK}" ]; then
+    ln -snf ${SSH_AUTH_SOCK} ${SSH_SHARED_AUTH_SOCK}
+    chmod go-rwx ${SSH_SHARED_AUTH_SOCK}
+    export SSH_AUTH_SOCK="${SSH_SHARED_AUTH_SOCK}"
+  fi
+fi
+unset SSH_SHARED_AUTH_SOCK
+
 # Completion settings
 autoload -Uz compinit
 compinit
