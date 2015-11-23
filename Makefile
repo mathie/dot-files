@@ -4,9 +4,8 @@ DOT_FILES = git_template gitconfig gitignore_global tmux.conf \
 						zshenv zshrc zsh_functions editrc pryrc ackrc my.cnf \
 						bashrc bash_profile guard.rb railsrc \
 						irbrc htoprc ctags
-BIN_DIR = bin
 
-install: install_dotfiles install_bin_dir install_vim_config
+install: install_dotfiles install_vim_config
 
 install_dotfiles: $(DOT_FILES) install_ssh_config install_bundler_config
 	for i in $(DOT_FILES); do \
@@ -25,12 +24,6 @@ install_ssh_config:
 install_bundler_config:
 	mkdir -p ${HOME}/.bundle
 	ln -snf `pwd`/bundler_config ${HOME}/.bundle/config
-
-install_bin_dir:
-	mkdir -p ~/bin
-	for i in $(BIN_DIR)/*; do \
-		ln -snf `pwd`/$$i ${HOME}/$$i; \
-	done
 
 install_vim_config: ~/.vim ~/.vimrc
 
