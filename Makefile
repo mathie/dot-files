@@ -3,9 +3,8 @@ default: install
 DOT_FILES = MacOSX git_template gitconfig gitignore_global tmux.conf \
 						zshenv zshrc zsh_functions editrc pryrc ackrc my.cnf \
 						bashrc bash_profile guard.rb railsrc irbrc htoprc ctags
-BIN_DIR = bin
 
-install: install_dotfiles install_keybindings install_bin_dir install_vim_config
+install: install_dotfiles install_keybindings install_vim_config
 
 install_dotfiles: $(DOT_FILES) install_ssh_config install_bundler_config
 	for i in $(DOT_FILES); do \
@@ -28,13 +27,6 @@ install_bundler_config:
 install_keybindings:
 	mkdir -p ${HOME}/Library/KeyBindings
 	ln -snf `pwd`/DefaultKeyBinding.dict ${HOME}/Library/KeyBindings/DefaultKeyBinding.dict
-
-install_bin_dir:
-	mkdir -p ~/bin
-	SetFile -a V ~/bin
-	for i in $(BIN_DIR)/*; do \
-		ln -snf `pwd`/$$i ${HOME}/$$i; \
-	done
 
 install_vim_config: ~/.vim ~/.vimrc
 
