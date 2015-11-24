@@ -163,8 +163,3 @@ autoload -U select-word-style
 select-word-style bash
 WORDCHARS=${WORDCHARS:s#/##}
 zstyle ':zle:*' word-chars ${WORDCHARS}
-
-# Help files
-unalias run-help
-autoload run-help
-export HELPDIR=/usr/local/share/zsh/helpfiles
