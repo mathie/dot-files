@@ -17,10 +17,13 @@ compinit
 setopt complete_in_word
 zstyle ':completion:*:default' list-colors ''
 
-eval "$(rbenv init - zsh | grep -v export.PATH)"
-function rbenv_global_exec() {
-  (rbenv shell $(rbenv global); exec $*)
-}
+if [ -x "$(type -p rbenv)" ]; then
+  eval "$(rbenv init - zsh | grep -v export.PATH)"
+  function rbenv_global_exec() {
+    (rbenv shell $(rbenv global); exec $*)
+  }
+fi
+
 alias be='bundle exec'
 
 setopt prompt_subst
@@ -136,7 +139,12 @@ preexec () {
 
 export PROMPT=$'%{\e[0;34m%}%n@%m %{\e[0;33m%}%*%{\e[0m%}
 %{\e[0;%(?.32.31)m%}>%{\e[0m%} '
-export RPROMPT=$'%{\e[0;33m%}%2~ %{\e[0;32m%}$(rbenv version-name)${vcs_info_msg_0_}%{\e[0m%}'
+
+if [ -x "$(type -p rbenv)" ]; then
+  export RPROMPT=$'%{\e[0;33m%}%2~ %{\e[0;32m%}$(rbenv version-name)${vcs_info_msg_0_}%{\e[0m%}'
+else
+  export RPROMPT=$'%{\e[0;33m%}%2~ ${vcs_info_msg_0_}%{\e[0m%}'
+fi
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
