@@ -22,4 +22,6 @@ export CLICOLOR=true
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Docker (via docker-machine)
-eval "$(docker-machine env dev)"
+if [ -x "$(which docker-machine)" ]; then
+  eval "$(docker-machine env dev)"
+fi
