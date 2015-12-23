@@ -25,3 +25,6 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 if [ -x "$(which docker-machine)" ]; then
   eval "$(docker-machine env dev)"
 fi
+
+# Install Homebrew casks into /Applications
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
