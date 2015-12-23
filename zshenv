@@ -15,3 +15,6 @@ export NODE_PATH="/usr/local/lib/node_modules"
 
 # Use Vim as the default editor.
 export EDITOR="vim"
+
+# Install Homebrew casks into /Applications
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
