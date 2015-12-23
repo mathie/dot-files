@@ -1,8 +1,0 @@
-#!/bin/bash
-
-echo "$(date) Woken up." >> ~/.sleepwatcher/activity.log
-
-for i in ~/.ssh/control/*; do
-  ssh -S ${i} -O exit dummyhost
-done
-rm -f ~/.ssh/control/*
