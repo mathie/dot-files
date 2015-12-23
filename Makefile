@@ -2,8 +2,7 @@ default: install
 
 DOT_FILES = git_template gitconfig gitignore_global tmux.conf \
 						zshenv zshrc zsh_functions editrc pryrc ackrc my.cnf \
-						bashrc bash_profile guard.rb railsrc \
-						irbrc htoprc ctags
+						bashrc bash_profile guard.rb railsrc irbrc htoprc ctags
 
 install: install_dotfiles install_vim_config
 
