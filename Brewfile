@@ -10,6 +10,7 @@ brew 'reattach-to-user-namespace'
 brew 'tmux'
 brew 'zsh'
 brew 'zsh-completions'
+brew 'zsh-syntax-highlighting'
 brew 'vim'
 
 # Required by various ruby gems.

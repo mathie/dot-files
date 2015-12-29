@@ -174,3 +174,10 @@ zstyle ':zle:*' word-chars ${WORDCHARS}
 
 # added by travis gem
 [ -f /Users/mathie/.travis/travis.sh ] && source /Users/mathie/.travis/travis.sh
+
+# Syntax highlighting? Shiny!
+highlighting="/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+if [ -f "${highlighting}" ]; then
+  source $highlighting
+fi
+unset highlighting
