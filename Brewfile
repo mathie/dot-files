@@ -9,6 +9,7 @@ tap 'homebrew/services'
 brew 'reattach-to-user-namespace'
 brew 'tmux'
 brew 'zsh'
+brew 'zsh-completions'
 brew 'vim'
 
 # Required by various ruby gems.
