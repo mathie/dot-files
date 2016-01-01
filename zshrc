@@ -20,7 +20,7 @@ compinit
 setopt complete_in_word
 zstyle ':completion:*:default' list-colors ''
 
-if [ -x "$(type -p rbenv)" ]; then
+if [ -x "$(whence -p rbenv)" ]; then
   eval "$(rbenv init - zsh | grep -v export.PATH)"
   function rbenv_global_exec() {
     (rbenv shell $(rbenv global); exec $*)
@@ -63,7 +63,7 @@ function tmux-new-session() {
 }
 
 # Use the github enhanced wrapper for git
-alias git=$(type -p hub)
+alias git=$(whence -p hub)
 compdef hub=git
 
 # Helpful git aliases
@@ -148,7 +148,7 @@ preexec () {
 export PROMPT=$'%{\e[0;34m%}%n@%m %{\e[0;33m%}%*%{\e[0m%}
 %{\e[0;%(?.32.31)m%}>%{\e[0m%} '
 
-if [ -x "$(type -p rbenv)" ]; then
+if [ -x "$(whence -p rbenv)" ]; then
   export RPROMPT=$'%{\e[0;33m%}%2~ %{\e[0;32m%}$(rbenv version-name)${vcs_info_msg_0_}%{\e[0m%}'
 else
   export RPROMPT=$'%{\e[0;33m%}%2~ ${vcs_info_msg_0_}%{\e[0m%}'
