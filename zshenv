@@ -23,7 +23,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Docker (via docker-machine)
 if [ -x "$(which docker-machine)" ]; then
-  eval "$(docker-machine env dev)"
+  eval "$(docker-machine env default)"
 fi
 
 # Install Homebrew casks into /Applications
