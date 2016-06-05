@@ -6,7 +6,7 @@ DOT_FILES = MacOSX git_template gitconfig gitignore_global tmux.conf \
 
 install: install_dotfiles install_keybindings install_vim_config
 
-install_dotfiles: $(DOT_FILES) install_ssh_config install_bundler_config
+install_dotfiles: $(DOT_FILES) install_ssh_config install_aws_config install_bundler_config
 	for i in $(DOT_FILES); do \
 		ln -snf `pwd`/$$i ${HOME}/.$$i; \
 	done
@@ -23,6 +23,10 @@ install_ssh_config:
 install_bundler_config:
 	mkdir -p ${HOME}/.bundle
 	ln -snf `pwd`/bundler_config ${HOME}/.bundle/config
+
+install_aws_config:
+	mkdir -p ${HOME}/.aws
+	ln -snf `pwd`/aws_config ${HOME}/.aws/config
 
 install_keybindings:
 	mkdir -p ${HOME}/Library/KeyBindings

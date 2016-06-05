@@ -1,0 +1,5 @@
+[default]
+output = text
+region = us-east-1
+[preview]
+cloudfront = true
