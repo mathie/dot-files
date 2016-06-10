@@ -26,5 +26,9 @@ if [ -x "$(which docker-machine)" ]; then
   eval "$(docker-machine env default)"
 fi
 
+if which swiftenv > /dev/null; then
+  eval "$(swiftenv init -)"
+fi
+
 # Install Homebrew casks into /Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
