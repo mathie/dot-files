@@ -30,5 +30,9 @@ if which swiftenv > /dev/null; then
   eval "$(swiftenv init -)"
 fi
 
+if which nodenv > /dev/null; then
+  eval "$(nodenv init -)";
+fi
+
 # Install Homebrew casks into /Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
