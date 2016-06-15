@@ -23,7 +23,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Docker (via docker-machine)
 if [ -x "$(which docker-machine)" ]; then
-  eval "$(docker-machine env default)"
+  eval "$(docker-machine env)"
 fi
 
 if which swiftenv > /dev/null; then
