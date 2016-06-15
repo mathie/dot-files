@@ -55,6 +55,7 @@ update_vim:
 
 update_homebrew:
 	brew update
+	brew bundle
 	brew outdated
 
 update_bundler:
