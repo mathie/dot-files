@@ -27,6 +27,3 @@ brew 'nodenv'
 brew 'rbenv'
 brew 'rbenv-aliases'
 brew 'rbenv-ctags'
-
-# For managing node installations
-brew 'nodenv'
