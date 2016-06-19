@@ -19,7 +19,9 @@ brew 'icu4c'
 
 brew 'ctags'
 brew 'hub'
-brew 'node'
+
+# For managing node, much as I'd rather not.
+brew 'nodenv'
 
 # For managing my rubies
 brew 'rbenv'
