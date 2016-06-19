@@ -4,7 +4,11 @@ DOT_FILES = MacOSX git_template gitconfig gitignore_global tmux.conf \
 						zshenv zshrc zsh_functions editrc pryrc ackrc my.cnf \
 						bashrc bash_profile guard.rb railsrc irbrc htoprc ctags
 
-install: install_dotfiles install_keybindings install_vim_config
+install:  prerequisites install_dotfiles install_keybindings install_vim_config
+update:   prerequisites update_dotfiles  update_vim update_bundler update_gems update_npm update_homebrew
+
+prerequisites:
+	@[ ! -f /etc/zprofile ] || (echo "The presence of /etc/zprofile will fsck with your dot-files. Remove it!" && false)
 
 install_dotfiles: $(DOT_FILES) install_ssh_config install_aws_config install_bundler_config
 	for i in $(DOT_FILES); do \
@@ -40,8 +44,6 @@ install_vim_config: ~/.vim ~/.vimrc
 
 ~/.vimrc:
 	ln -snf ~/.vim/vimrc ~/.vimrc
-
-update: update_dotfiles update_vim update_bundler update_gems update_npm update_homebrew
 
 update_dotfiles:
 	cd ${HOME}/Development/Personal/dot-files && \
