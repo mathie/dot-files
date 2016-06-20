@@ -18,8 +18,19 @@
 	helper = osxkeychain
 [diff]
 	algorithm = histogram
+[format]
+	signOff = true
+[gpg]
+	program = /usr/local/bin/gpg2
 [merge]
 	tool = fugitive
 	ff = false
+[ghi]
+	token = !security find-internet-password -a mathie -s github.com -w
+[github]
+	user = mathie
+	token = !security find-internet-password -a mathie -s github.com -w
 [mergetool "fugitive"]
 	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[commit]
+	gpgSign = true

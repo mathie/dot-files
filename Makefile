@@ -15,9 +15,6 @@ install_dotfiles: $(DOT_FILES) install_ssh_config install_aws_config install_bun
 		ln -snf `pwd`/$$i ${HOME}/.$$i; \
 	done
 
-gitconfig: gitconfig.public gitconfig.private
-	cat $^ > $@
-
 install_ssh_config:
 	mkdir -p ${HOME}/.ssh/control
 	ln -snf `pwd`/ssh_config ${HOME}/.ssh/config
