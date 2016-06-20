@@ -3,16 +3,17 @@ fpath=(~/.zsh_functions /usr/local/share/zsh-completions $fpath)
 homebrew=/usr/local
 : ~homebrew
 
-# Point to a consistent agent socket location
-SSH_SHARED_AUTH_SOCK=${HOME}/.ssh/agent.sock
-if [ -S "${SSH_AUTH_SOCK}" ]; then
-  if [ "${SSH_AUTH_SOCK}" != "${SSH_SHARED_AUTH_SOCK}" ]; then
-    ln -snf ${SSH_AUTH_SOCK} ${SSH_SHARED_AUTH_SOCK}
-    chmod go-rwx ${SSH_SHARED_AUTH_SOCK}
-    export SSH_AUTH_SOCK="${SSH_SHARED_AUTH_SOCK}"
+# Set up GnuPG and its agent
+if [ -x /usr/local/bin/gpg-agent ]; then
+  if [ -z "${GPG_AGENT_INFO}" -a -f "${HOME}/.gpg-agent-info" ]; then
+    . "${HOME}/.gpg-agent-info"
+    export GPG_AGENT_INFO SSH_AUTH_SOCK SSH_AGENT_PID
+  fi
+
+  if ! gpg-agent > /dev/null 2>&1; then
+    eval "$(gpg-agent --daemon --enable-ssh-support --write-env-file "${HOME}/.gpg-agent-info")"
   fi
 fi
-unset SSH_SHARED_AUTH_SOCK
 
 # Completion settings
 autoload -Uz compinit

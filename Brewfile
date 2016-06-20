@@ -27,3 +27,8 @@ brew 'nodenv'
 brew 'rbenv'
 brew 'rbenv-aliases'
 brew 'rbenv-ctags'
+
+# GnuPG stuff
+brew 'pinentry-mac'
+brew 'gnupg2'
+brew 'gpg-agent'

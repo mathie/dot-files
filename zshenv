@@ -30,3 +30,5 @@ fi
 
 # Install Homebrew casks into /Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+export GPG_TTY=$(tty)
