@@ -10,7 +10,8 @@ update:   prerequisites update_dotfiles  update_vim update_bundler update_gems u
 prerequisites:
 	@[ ! -f /etc/zprofile ] || (echo "The presence of /etc/zprofile will fsck with your dot-files. Remove it!" && false)
 
-install_dotfiles: $(DOT_FILES) install_ssh_config install_aws_config install_bundler_config
+install_dotfiles: $(DOT_FILES) install_ssh_config install_gpg_config \
+		install_aws_config install_bundler_config
 	for i in $(DOT_FILES); do \
 		ln -snf `pwd`/$$i ${HOME}/.$$i; \
 	done
@@ -20,6 +21,12 @@ install_ssh_config:
 	ln -snf `pwd`/ssh_config ${HOME}/.ssh/config
 	ln -snf `pwd`/authorized_keys ${HOME}/.ssh/authorized_keys
 	chmod go-rwx `pwd`/ssh_config `pwd`/authorized_keys
+
+install_gpg_config:
+	mkdir -p ${HOME}/.gnupg
+	ln -snf `pwd`/gpg.conf ${HOME}/.gnupg/gpg.conf
+	ln -snf `pwd`/gpg-agent.conf ${HOME}/.gnupg/gpg-agent.conf
+	chmod -R go-rwx ${HOME}/.gnupg
 
 install_bundler_config:
 	mkdir -p ${HOME}/.bundle
