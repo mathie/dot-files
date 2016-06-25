@@ -26,7 +26,7 @@
 	tool = fugitive
 	ff = false
 [ghi]
-	token = !security find-internet-password -a mathie -s github.com -w
+	token = !security find-internet-password -a mathie -s github.com -l 'ghi token' -w
 [github]
 	user = mathie
 	token = !security find-internet-password -a mathie -s github.com -w
