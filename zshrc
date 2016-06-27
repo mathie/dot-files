@@ -3,6 +3,23 @@ fpath=(~/.zsh_functions /usr/local/share/zsh-completions $fpath)
 homebrew=/usr/local
 : ~homebrew
 
+# Java (et al) defaults
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+if which rbenv > /dev/null; then
+  eval "$(rbenv init -)"
+fi
+
+if which swiftenv > /dev/null; then
+  eval "$(swiftenv init -)"
+fi
+
+if which nodenv > /dev/null; then
+  eval "$(nodenv init -)";
+fi
+
+export PATH="bin:${HOME}/bin:${PATH}"
+
 # Set up GnuPG and its agent
 if [ -x /usr/local/bin/gpg-agent ]; then
   if [ -z "${GPG_AGENT_INFO}" -a -f "${HOME}/.gpg-agent-info" ]; then
@@ -21,12 +38,9 @@ compinit
 setopt complete_in_word
 zstyle ':completion:*:default' list-colors ''
 
-if [ -x "$(whence -p rbenv)" ]; then
-  eval "$(rbenv init - zsh | grep -v export.PATH)"
-  function rbenv_global_exec() {
-    (rbenv shell $(rbenv global); exec $*)
-  }
-fi
+function rbenv_global_exec() {
+  (rbenv shell $(rbenv global); exec $*)
+}
 
 alias be='bundle exec'
 

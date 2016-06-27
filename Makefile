@@ -4,16 +4,19 @@ DOT_FILES = git_template gitconfig gitignore_global tmux.conf \
 						zshenv zshrc zsh_functions editrc pryrc ackrc my.cnf \
 						bashrc bash_profile guard.rb railsrc irbrc htoprc ctags
 
-install:  prerequisites install_dotfiles install_keybindings install_vim_config
-update:   prerequisites update_dotfiles  update_vim update_bundler update_gems update_npm update_homebrew
-
-prerequisites:
-	@[ ! -f /etc/zprofile ] || (echo "The presence of /etc/zprofile will fsck with your dot-files. Remove it!" && false)
+install:  install_bin install_dotfiles install_keybindings install_vim_config
+update:   update_dotfiles  update_vim update_bundler update_gems update_npm update_homebrew
 
 install_dotfiles: $(DOT_FILES) install_ssh_config install_gpg_config \
 		install_aws_config install_bundler_config
 	for i in $(DOT_FILES); do \
 		ln -snf `pwd`/$$i ${HOME}/.$$i; \
+	done
+
+install_bin:
+	mkdir -p ${HOME}/bin
+	for i in `pwd`/bin/*; do \
+		ln -snf $$i ${HOME}/bin/$$(basename $$i); \
 	done
 
 install_ssh_config:
