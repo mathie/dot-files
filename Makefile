@@ -15,6 +15,7 @@ install_dotfiles: $(DOT_FILES) install_ssh_config install_gpg_config \
 
 install_bin:
 	mkdir -p ${HOME}/bin
+	SetFile -a V ${HOME}/bin
 	for i in `pwd`/bin/*; do \
 		ln -snf $$i ${HOME}/bin/$$(basename $$i); \
 	done
