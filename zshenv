@@ -20,3 +20,6 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 export GPG_TTY=$(tty)
 
+# Fastlane seems to be getting a bit upset about my Keychain database ending in
+# `-db` which is entirely understandable.
+export CERT_KEYCHAIN_PATH=${HOME}/Library/Keychains/login.keychain-db
