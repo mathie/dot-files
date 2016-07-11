@@ -4,6 +4,7 @@ tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'homebrew/bundle'
 tap 'homebrew/services'
+tap 'jonof/kenutils'
 
 # The absolute basics
 brew 'reattach-to-user-namespace'
@@ -32,3 +33,14 @@ brew 'rbenv-ctags'
 brew 'pinentry-mac'
 brew 'gnupg2'
 brew 'gpg-agent'
+
+# Image manipulation (mostly tools for image_optim)
+brew 'pngout'
+brew 'advancecomp'
+brew 'gifsicle'
+brew 'jhead'
+brew 'jpegoptim'
+brew 'jpeg'
+brew 'optipng'
+brew 'pngcrush'
+brew 'pngquant'
