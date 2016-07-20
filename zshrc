@@ -80,7 +80,7 @@ function tmux-new-session() {
 }
 
 # Use the github enhanced wrapper for git
-alias git=$(whence -p hub)
+alias git=$(cd /; whence -p hub)
 compdef hub=git
 
 # Helpful git aliases
