@@ -4,7 +4,9 @@ homebrew=/usr/local
 : ~homebrew
 
 # Java (et al) defaults
-export JAVA_HOME=$(/usr/libexec/java_home)
+if [ -x /usr/libexec/java_home ]; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+fi
 
 if which rbenv > /dev/null; then
   eval "$(rbenv init -)"
