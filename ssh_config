@@ -1,12 +1,8 @@
 Host *.local
   ForwardAgent yes
 
-Host *.rubaidh.com
+Host *.woss.name
   ForwardAgent yes
-
-Host *.doorguardhq.com
-  User deploy
-  Port 32323
 
 # Global defaults
 Host *
