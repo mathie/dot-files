@@ -7,6 +7,7 @@ heroku.com,50.19.85.* ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAu8erSx6jh+8ztsfHwkNeFr
 
 # Random other people's machines that I have shells on.
 ssh.tardis.ed.ac.uk,193.62.81.19 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC07uBZgn7XSTlikXqw3ZnqfQ6AU7chxWPoh9kbW1CLTNR9XkOIfbvHqxroZqZz63MoWvWYexTaNvmal6hXZHjZXADiN+M961iTsfinUIsnxHRcqMhsCT3lRcOuebrppPa4EZZEgm0JFp7F50DFGEOoU6TF+sTAUMca51WIN5KgconiSz7RQLzMp1y2qjzMfrCVdqa3r2/yJW8qnaqrxXfUuTbMzPhrCfxJOqcHqhmcR2BzPpTUKMPTBc/Rg4DVl2ycVJtr5mr6w7HGbDgyPVk0Rw8Au9a5j2k7E4ng0TGWu53mAlD4msY00XgXjzMhn5KTq0dZQAMdiRzisHQnzHTj
+dokku.freshmonkey.net,178.62.114.112 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFic45tplEQI06+cL66cxsE5Oh9YQv5kZp4PZQdDfa3U5U35gqiGG7qJSOAlGI/B6ZJzExnNMla8Yi3eMQDvuTo=
 
 # Machines I run.
 canephora,canephora.local,canephora.in.woss.name,fe80::3ac9:86ff:fe1c:a618%en4,fe80::3ac9:86ff:fe1c:a618%en0 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGfXQMK77FXBEHjywE0NpreJXrzf4oGdvsb2dAfw9SfXMr9uNvvnVyF+rJKbPtcLoEcY3uNmY4a6cwRsonAgrro=
