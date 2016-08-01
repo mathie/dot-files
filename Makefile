@@ -5,7 +5,7 @@ DOT_FILES = git_template gitconfig gitignore_global tmux.conf \
 						bashrc bash_profile guard.rb railsrc irbrc htoprc ctags
 
 install:  install_bin install_dotfiles install_keybindings install_vim_config
-update:   update_dotfiles  update_vim update_bundler update_gems update_npm update_homebrew
+update:   update_dotfiles update_macos update_vim update_bundler update_gems update_npm update_homebrew
 
 install_dotfiles: $(DOT_FILES) install_ssh_config install_gpg_config \
 		install_aws_config install_bundler_config
@@ -58,6 +58,9 @@ update_dotfiles:
 	cd ${HOME}/Development/Personal/dot-files && \
 		git remote update && git rebase -p && \
 		make
+
+update_macos:
+	softwareupdate --install --all
 
 update_vim:
 	cd ${HOME}/.vim && \
