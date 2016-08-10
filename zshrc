@@ -22,6 +22,9 @@ if ! gpg-agent > /dev/null 2>&1; then
   eval "$(gpg-agent --daemon --enable-ssh-support --write-env-file "${HOME}/.gpg-agent-info")"
 fi
 
+# Emacs keybindings by default, which are more familiar to my macOS fingers.
+bindkey -e
+
 # Completion settings
 autoload -Uz compinit
 compinit
