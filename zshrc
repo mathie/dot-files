@@ -28,7 +28,13 @@ bindkey -e
 # Completion settings
 autoload -Uz compinit
 compinit
-zstyle ':completion:*:default' list-colors ''
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' insert-unambiguous true
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*'
+zstyle ':completion:*' original true
+zstyle ':completion:*' use-compctl false
 compdef hub=git
 
 alias be='bundle exec'
