@@ -100,7 +100,10 @@ urlencode() {
 
 precmd() {
   vcs_info
-  working_directory_title "$(pwd)"
+}
+
+chpwd() {
+  working_directory_title "${PWD}"
 }
 
 preexec () {
