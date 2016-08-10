@@ -1,4 +1,0 @@
-for sock_path in ~/.ssh/control/*.sock; do
-  host=$(basename ${sock_path/\.sock/})
-  ssh -O exit -S ${sock_path} ${host}
-done
