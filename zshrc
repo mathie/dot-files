@@ -1,139 +1,113 @@
-fpath=(~/.zsh_functions /usr/local/share/zsh-completions $fpath)
+setopt autocd autopushd pushdminus pushdsilent pushdtohome pushdignoredups \
+  prompt_subst extendedglob notify append_history inc_append_history \
+  share_history hist_ignore_all_dups extended_history complete_in_word
 
-homebrew=/usr/local
-: ~homebrew
+fpath=(/usr/local/share/zsh-completions $fpath)
+cdpath=(~ ~/Development)
 
-# Java (et al) defaults
-if [ -x /usr/libexec/java_home ]; then
-  export JAVA_HOME=$(/usr/libexec/java_home)
-fi
+eval "$(rbenv init -)"
+eval "$(nodenv init -)";
+. /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-if which rbenv > /dev/null; then
-  eval "$(rbenv init -)"
-fi
-
-if which swiftenv > /dev/null; then
-  eval "$(swiftenv init -)"
-fi
-
-if which nodenv > /dev/null; then
-  eval "$(nodenv init -)";
-fi
-
-export PATH="bin:${HOME}/bin:${PATH}"
+export PATH="bin:${PATH}"
 
 # Set up GnuPG and its agent
-if [ -x /usr/local/bin/gpg-agent ]; then
-  if [ -z "${GPG_AGENT_INFO}" -a -f "${HOME}/.gpg-agent-info" ]; then
-    . "${HOME}/.gpg-agent-info"
-    export GPG_AGENT_INFO SSH_AUTH_SOCK SSH_AGENT_PID
-  fi
+export GPG_TTY=$(tty)
+if [ -z "${GPG_AGENT_INFO}" -a -f "${HOME}/.gpg-agent-info" ]; then
+  . "${HOME}/.gpg-agent-info"
+  export GPG_AGENT_INFO SSH_AUTH_SOCK SSH_AGENT_PID
+fi
 
-  if ! gpg-agent > /dev/null 2>&1; then
-    eval "$(gpg-agent --daemon --enable-ssh-support --write-env-file "${HOME}/.gpg-agent-info")"
-  fi
+if ! gpg-agent > /dev/null 2>&1; then
+  eval "$(gpg-agent --daemon --enable-ssh-support --write-env-file "${HOME}/.gpg-agent-info")"
 fi
 
 # Completion settings
 autoload -Uz compinit
 compinit
-setopt complete_in_word
 zstyle ':completion:*:default' list-colors ''
-
-function rbenv_global_exec() {
-  (rbenv shell $(rbenv global); exec $*)
-}
-
-alias be='bundle exec'
-
-setopt prompt_subst
-setopt autopushd pushdminus pushdsilent pushdtohome pushdignoredups
-
-cdpath=( ~ ~/Development ${GOPATH}/src/github.com ${GOPATH}/src/code.google.com/p )
-setopt autocd
-
-alias ls='ls -Fhe@cAO'
-alias sudo='sudo -H -p "[%u@%h -> %U] Password:"'
-
-alias vim="${EDITOR}"
-alias :e="${EDITOR}"
-alias :r="cat"
-
-# Helpful tmux aliases for interacting with the system clipboard.
-alias tmux-buffer-to-clipboard='tmux save-buffer -|pbcopy'
-alias tmux-buffer-from-clipboard='tmux set-buffer "$(pbpaste)"'
-
-function tmux-new-session() {
-  local session_name=${1}
-
-  if [ -z "${session_name}" ]; then
-    echo "Usage: tmux-new-session <session name>"
-    return 1
-  fi
-
-  if [ ! -z "${TMUX}" ]; then
-    env TMUX= tmux new-session -d -s ${session_name}
-    tmux switch-client -t ${session_name}
-  else
-    tmux new-session -s ${session_name}
-  fi
-}
-
-# Use the github enhanced wrapper for git
-alias git=$(cd /; whence -p hub)
 compdef hub=git
 
-# Helpful git aliases
+alias be='bundle exec'
+alias ls='ls -Fhe@cAO'
+alias git=hub
 alias gs='git status --short --branch'
 alias gd='git diff --color-words'
 alias gdc='gd --cached'
 alias glog='git log --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
 alias gl='glog --graph'
-alias gla='gl --all'
 alias gup='gru && git rebase -p'
 alias gc='git commit'
 alias ga='git add --all'
 alias gap='git add --all --patch'
 alias gp='git push'
-alias gru='git remote update --prune'
 alias gco='git checkout'
-alias gcob='git checkout -b'
 alias gb='git branch'
 alias gba='git branch -a'
-alias gf='git fetch'
 alias gpr='git pull-request'
 
-function gblame() {
-  for branch in $(git branch -r); do
-    echo $(git show -s --format=format:"%an ${branch/origin\//}" $branch)
-  done | sort -u
+osc() {
+  local code="$1"
+  local title="$2"
+
+  printf "\e]%d;%s\e\\" ${code} ${title}
 }
 
-function gblame_me() {
-  gblame | grep "^Graeme Mathieson"
+tab_title() {
+  local title=$1
+
+  osc 1 ${title}
 }
 
-# Force the terminal to be screen rather than screen-256color when sshing into
-# something else.
-if [ $TERM = 'screen-256color' ]; then
-  alias ssh='TERM="screen" ssh'
-  alias vagrant='TERM="screen" vagrant'
-fi
+window_title() {
+  local title=$1
 
-# Manage SSH control masters
-autoload -U ssh_control_status ssh_control_exit_masters
-
-title() {
-  print -Pn "\ek$1\e\\"
+  osc 2 ${title}
 }
 
-pane_title() {
-  print -Pn "\e]2;$1\e\\"
+working_directory_title() {
+  local working_directory=$(file_url $1)
+
+  osc 7 ${working_directory}
+}
+
+document_title() {
+  local document=$(file_url $1)
+
+  osc 6 ${document}
+}
+
+file_url() {
+  local path=$1
+
+  printf "file://%s%s" $(/bin/hostname) $(urlencode ${path:a})
+}
+
+urlencode() {
+    setopt localoptions
+    input=( ${(s::)1} )
+    print ${(j::)input/(#b)([^\/A-Za-z0-9_.!~*\'\(\)-])/%$(([##16]#match))}
+}
+
+precmd() {
+  vcs_info
+  working_directory_title "$(pwd)"
+}
+
+preexec () {
+  local cmd=${1[(wr)^(*=*|sudo|bundle|exec|be|-*)]}
+  local target=${1[(wR)^(*=*|-*)]}
+
+  tab_title "${cmd}"
+
+  if [ ! -z "${target}" -a "${target}" != "${cmd}" -a -e "${target}" ]; then
+    document_title ${target}(:a)
+  fi
 }
 
 # Nice prompt
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git hg svn
+zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' stagedstr '%F{28}●%f'
 zstyle ':vcs_info:*' unstagedstr '%F{11}●%f'
 zstyle ':vcs_info:*' check-for-changes true
@@ -141,60 +115,8 @@ zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' formats ' %F{blue}%b%f@%F{yellow}%8<<%i%f %c%u'
 zstyle ':vcs_info:*' actionformats ' %F{blue}%b|%a%f@%F{yellow}%8<<%i%f %c%u'
 
-precmd () {
-  vcs_info
-  title 'zsh'
-  pane_title "%~"
-}
-
-preexec () {
-  local cmd=${1[(wr)^(*=*|sudo|bundle|exec|be|-*)]}
-  local target=${1[(wR)^(*=*|-*)]}
-
-  title "${cmd}"
-
-  if [ ! -z "${target}" -a "${target}" != "${cmd}" ]; then
-    if [ -e "${target}" ]; then
-      pane_title ${target}(:a)
-    else
-      pane_title "${target}"
-    fi
-  fi
-}
-
-export PROMPT=$'%{\e[0;34m%}%n@%m %{\e[0;33m%}%*%{\e[0m%}
-%{\e[0;%(?.32.31)m%}>%{\e[0m%} '
-
-if [ -x "$(whence -p rbenv)" ]; then
-  export RPROMPT=$'%{\e[0;33m%}%2~ %{\e[0;32m%}$(rbenv version-name)${vcs_info_msg_0_}%{\e[0m%}'
-else
-  export RPROMPT=$'%{\e[0;33m%}%2~ ${vcs_info_msg_0_}%{\e[0m%}'
-fi
-
-HISTFILE=~/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
-setopt extendedglob notify append_history inc_append_history share_history hist_ignore_all_dups extended_history
-bindkey -e
-
-# shift-tab reverses through completions
-bindkey '^[[Z' reverse-menu-complete
-
-# Report the runtime of commands that take longer than 5 seconds.
-REPORTTIME=5
-
 # Set the word style to the bash stylee I'm familiar with.
 autoload -U select-word-style
 select-word-style bash
 WORDCHARS=${WORDCHARS:s#/##}
 zstyle ':zle:*' word-chars ${WORDCHARS}
-
-# added by travis gem
-[ -f /Users/mathie/.travis/travis.sh ] && source /Users/mathie/.travis/travis.sh
-
-# Syntax highlighting? Shiny!
-highlighting="/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-if [ -f "${highlighting}" ]; then
-  source $highlighting
-fi
-unset highlighting

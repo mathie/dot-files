@@ -1,51 +1,38 @@
 default: install
 
-DOT_FILES = git_template gitconfig gitignore_global tmux.conf \
-						zshenv zshrc zsh_functions editrc pryrc ackrc my.cnf \
-						bashrc bash_profile guard.rb railsrc irbrc htoprc ctags
+DOT_DIRS = aws gnupg ssh ssh/control
+DOT_DIR_TARGETS = $(DOT_DIRS:%=$(HOME)/.%)
+DOT_FILES = zshenv zshrc aws/config \
+	ssh/config ssh/known_hosts ssh/authorized_keys \
+	gnupg/gpg.conf gnupg/gpg-agent.conf
+DOT_FILE_TARGETS = $(DOT_FILES:%=$(HOME)/.%)
 
-install:  install_bin install_dotfiles install_keybindings install_vim_config
+install:  install_dotfiles install_vim_config
 update:   update_dotfiles update_macos update_vim update_bundler update_gems update_npm update_homebrew
 
-install_dotfiles: $(DOT_FILES) install_ssh_config install_gpg_config \
-		install_aws_config install_bundler_config
-	for i in $(DOT_FILES); do \
-		ln -snf `pwd`/$$i ${HOME}/.$$i; \
-	done
+XDG_CONFIG_HOME := $(HOME)/.config
+XDG_CONFIG_DIRS := $(shell find config -type d -mindepth 1 | sed -e 's,^config/,,')
+XDG_CONFIG_DIR_TARGETS := $(XDG_CONFIG_HOME) $(XDG_CONFIG_DIRS:%=$(XDG_CONFIG_HOME)/%)
 
-install_bin:
-	mkdir -p ${HOME}/bin
-	[ -x /usr/bin/SetFile ] && SetFile -a V ${HOME}/bin || true
-	for i in `pwd`/bin/*; do \
-		ln -snf $$i ${HOME}/bin/$$(basename $$i); \
-	done
+XDG_CONFIG_FILES := $(shell find config -type f -mindepth 1 | sed -e 's,^config/,,')
+XDG_CONFIG_FILE_TARGETS := $(XDG_CONFIG_FILES:%=$(XDG_CONFIG_HOME)/%)
 
-install_ssh_config:
-	mkdir -p ${HOME}/.ssh/control
-	ln -snf `pwd`/ssh_config ${HOME}/.ssh/config
-	ln -snf `pwd`/ssh_known_hosts ${HOME}/.ssh/known_hosts
-	ln -snf `pwd`/authorized_keys ${HOME}/.ssh/authorized_keys
-	chmod go-rwx `pwd`/ssh_config `pwd`/authorized_keys
+install_xdg_config: $(XDG_CONFIG_DIR_TARGETS) $(XDG_CONFIG_FILE_TARGETS)
+.PHONY: install_xdg_config
 
-install_gpg_config:
-	mkdir -p ${HOME}/.gnupg
-	ln -snf `pwd`/gpg.conf ${HOME}/.gnupg/gpg.conf
-	ln -snf `pwd`/gpg-agent.conf ${HOME}/.gnupg/gpg-agent.conf
-	chmod -R go-rwx ${HOME}/.gnupg
+$(XDG_CONFIG_DIR_TARGETS) $(DOT_DIR_TARGETS):
+	install -d -m 0700 $(XDG_CONFIG_DIR_TARGETS) $(DOT_DIR_TARGETS)
 
-install_bundler_config:
-	mkdir -p ${HOME}/.bundle
-	ln -snf `pwd`/bundler_config ${HOME}/.bundle/config
+$(XDG_CONFIG_HOME)/%: config/%
+	ln -snf "$(PWD)/$<" "$@"
 
-install_aws_config:
-	mkdir -p ${HOME}/.aws
-	ln -snf `pwd`/aws_config ${HOME}/.aws/config
+$(HOME)/.%: %
+	ln -snf "$(PWD)/$<" "$@"
 
-install_keybindings:
-	mkdir -p ${HOME}/Library/KeyBindings
-	ln -snf `pwd`/DefaultKeyBinding.dict ${HOME}/Library/KeyBindings/DefaultKeyBinding.dict
+install_dotfiles: $(DOT_DIR_TARGETS) $(DOT_FILE_TARGETS)
+.PHONY: install_dotfiles
 
-install_vim_config: ~/.vim ~/.vimrc
+install_vim_config: # ~/.vim ~/.vimrc
 
 ~/.vim:
 	git clone git@github.com:mathie/.vim.git ~/.vim

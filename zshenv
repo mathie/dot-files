@@ -1,25 +1,13 @@
-# Defaults for Perl
-export PERL_LOCAL_LIB_ROOT="${HOME}/.perl5";
-export PERL_MB_OPT="--install_base ${PERL_LOCAL_LIB_ROOT}";
-export PERL_MM_OPT="INSTALL_BASE=${PERL_LOCAL_LIB_ROOT}";
-export PERL5LIB="${PERL_LOCAL_LIB_ROOT}/lib/perl5/darwin-thread-multi-2level:${PERL_LOCAL_LIB_ROOT}/lib/perl5";
-
-# Defaults for Go
-export GOPATH="${HOME}/Development/Go"
-
-export PAGER='less'
+export EDITOR="/usr/local/bin/atom -w"
+export PAGER="less"
 export LESS='-iMRsS~'
-
-# Use Vim as the default editor.
-export EDITOR="vim"
-
 export CLICOLOR=true
 
-# Install Homebrew casks into /Applications
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export PROMPT=$'%{\e[0;34m%}%n@%m %{\e[0;33m%}%*%{\e[0m%}
+%{\e[0;%(?.32.31)m%}>%{\e[0m%} '
+export RPROMPT=$'%{\e[0;33m%}%2~ ${vcs_info_msg_0_}%{\e[0m%}'
 
-export GPG_TTY=$(tty)
-
-# Fastlane seems to be getting a bit upset about my Keychain database ending in
-# `-db` which is entirely understandable.
-export CERT_KEYCHAIN_PATH=${HOME}/Library/Keychains/login.keychain-db
+export HISTFILE=~/.zsh_history
+export HISTSIZE=1000000
+export SAVEHIST=1000000
+export REPORTTIME=5
