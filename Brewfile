@@ -7,8 +7,6 @@ tap 'homebrew/services'
 tap 'jonof/kenutils'
 
 # The absolute basics
-brew 'reattach-to-user-namespace'
-brew 'tmux'
 brew 'zsh'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
@@ -17,7 +15,6 @@ brew 'vim'
 # Required by various ruby gems.
 brew 'cmake'
 brew 'icu4c'
-
 brew 'ctags'
 brew 'hub'
 
