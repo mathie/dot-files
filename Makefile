@@ -49,7 +49,7 @@ update_macos:
 
 update_vim: $(HOME)/.vim
 	cd "$<" && \
-		git git pull && \
+		git pull && \
 		git submodule update --init --recursive
 
 update_homebrew:
