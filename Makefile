@@ -55,7 +55,8 @@ update_vim: $(HOME)/.vim
 update_homebrew:
 	brew update
 	brew bundle
-	brew outdated
+	brew upgrade
+	brew cleanup
 
 update_bundler:
 	bundle update
