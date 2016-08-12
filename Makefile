@@ -12,8 +12,12 @@ XDG_CONFIG_DIR_TARGETS := $(XDG_CONFIG_HOME) $(XDG_CONFIG_DIRS:%=$(XDG_CONFIG_HO
 XDG_CONFIG_FILES := $(shell find config -type f -mindepth 1 | sed -e 's,^config/,,')
 XDG_CONFIG_FILE_TARGETS := $(XDG_CONFIG_FILES:%=$(XDG_CONFIG_HOME)/%)
 
+ZSH_DOT_FILES = zshenv zshrc
+ZSH_TARGET_DOT_FILES = $(ZSH_DOT_FILES:%=$(HOME)/.%)
+ZSH_COMPILED_TARGETS = $(ZSH_TARGET_DOT_FILES:%=%.zwc)
+
 default: install
-install: install_xdg_config install_dotfiles install_vim_config
+install: install_xdg_config install_dotfiles install_vim_config compile_zsh_dotfiles
 update:  update_dotfiles update_macos update_atom update_vim update_bundler \
 	update_gems update_npm update_homebrew
 
@@ -40,6 +44,11 @@ $(XDG_CONFIG_HOME)/%: config/%
 
 $(HOME)/.%: %
 	ln -snf "$(PWD)/$<" "$@"
+
+compile_zsh_dotfiles: $(ZSH_COMPILED_TARGETS)
+
+$(HOME)/.%.zwc: $(HOME)/.%
+	zsh -c 'zcompile "$<"'
 
 update_dotfiles:
 	git pull && \
