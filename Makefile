@@ -14,7 +14,8 @@ XDG_CONFIG_FILE_TARGETS := $(XDG_CONFIG_FILES:%=$(XDG_CONFIG_HOME)/%)
 
 default: install
 install: install_xdg_config install_dotfiles install_vim_config
-update:  update_dotfiles update_macos update_vim update_bundler update_gems update_npm update_homebrew
+update:  update_dotfiles update_macos update_atom update_vim update_bundler \
+	update_gems update_npm update_homebrew
 
 install_xdg_config: $(XDG_CONFIG_DIR_TARGETS) $(XDG_CONFIG_FILE_TARGETS)
 .PHONY: install_xdg_config
@@ -46,6 +47,9 @@ update_dotfiles:
 
 update_macos:
 	softwareupdate --install --all
+
+update_atom:
+	[ -x $$(which apm) ] && apm upgrade --no-confirm
 
 update_vim: $(HOME)/.vim
 	cd "$<" && \
