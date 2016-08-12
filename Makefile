@@ -63,7 +63,8 @@ update_atom:
 update_vim: $(HOME)/.vim
 	cd "$<" && \
 		git pull && \
-		git submodule update --init --recursive
+		git submodule update --init --recursive && \
+		rake
 
 update_homebrew:
 	brew update
