@@ -1,5 +1,3 @@
-brew 'caskroom/cask/brew-cask'
-
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'homebrew/bundle'
