@@ -13,5 +13,7 @@ dokku.freshmonkey.net,178.62.114.112 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbml
 canephora,canephora.local,canephora.in.woss.name,fe80::3ac9:86ff:fe1c:a618%en4,fe80::3ac9:86ff:fe1c:a618%en0 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGfXQMK77FXBEHjywE0NpreJXrzf4oGdvsb2dAfw9SfXMr9uNvvnVyF+rJKbPtcLoEcY3uNmY4a6cwRsonAgrro=
 dewerstone,dewerstone.local,dewerstone.in.woss.name,10.11.4.115,fe80::6a05:caff:fe09:ebb1%en0,2001:470:1f09:60d:1::1 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMRetVverNn6LaFzlzaYSwOy9QcK5uqIrJvf706cpEYSo0tY4XoEQ3DfgUu8xqqqwLxiqLE0lc9QWSrw5TH6LY0=
 livingroom.in.woss.name,10.0.1.127 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgwCZsSjjl7T6LYSEYqEiR4QKIQaSDKfSMDpfIRWJ7eJirY1M5aEt2pG6KjP706kjxsItXKZsU62Ko4DWgKdN15JCWFfaWQW/6WxBrsS1PKfxJa3dl5+c0RxBmPPOfq8myfucIa8vHou4x2T4++e9n3tP552X8mbqyiqUnP9hYcowUeYh
+bosigran.local,fe80::1432:792c:e232:b83a%en0,fe80::1c28:8fbd:9acd:b80d%en0 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBF6XOKcmCNo3e2CVLtYaetRvNAc5E5Gl8OtySovrtVpay94DwZeusfZj7muItz9uA5cjwg4Ij3Q35t+EWL0c+u4=
+pew-tor,2001:470:6ce2::1,192.168.1.1 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBF9UQrCCMEUYXfJpbLO2n1CjqtmNBX1AHbE2Hrm+E8rrh8DjW5onR2ro1ovnJ1JBkveOg9Bfwk2P5CaAAhra9jE=
 
 # Unsorted entries
